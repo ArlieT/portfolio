@@ -3,19 +3,119 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f3f2f9;
+  --foreground: #606887;
+  --invert-color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+.prefers-color-scheme-dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-synthesis: none;
+}
+
+.font-variation-bold {
+  font-family: var(--font-feixen), Arial, Helvetica, sans-serif;
+  font-variation-settings:
+    "wght" 800,
+    "wdth" 125;
+}
+
+.font-variation {
+  font-family: var(--font-feixen), Arial, Helvetica, sans-serif;
+  font-variation-settings:
+    "wght" 500,
+    "wdth" 125;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px var(--foreground);
+  color: transparent;
+}
+
+.overlay-invert {
+  color: var(--invert-color);
+  mix-blend-mode: difference;
+}
+
+.name,
+.nav-menu {
+  position: relative;
+  white-space: nowrap;
+  cursor: help;
+  display: block;
+  font-family: var(--font-feixen), Arial, Helvetica, sans-serif;
+  font-variation-settings:
+    "wght" 800,
+    "wdth" 125;
+}
+
+.nav-menu button span:hover {
+  font-variation-settings:
+    "wght" 800,
+    "wdth" 100;
+}
+
+.flip-horizontal {
+  --transform-scale-x: -1;
+}
+
+.noise {
+  position: fixed;
+  z-index: 9999999999;
+  top: -300%;
+  left: -150%;
+  height: 600%;
+  width: 600%;
+  -webkit-animation: grain 7s steps(10) infinite;
+  animation: grain 7s steps(10) infinite;
+  background-image: url(/images/noise.png);
+  background-size: 200px;
+  background-repeat: repeat;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-10%, -10%);
+  }
+  20% {
+    transform: translate(10%, 5%);
+  }
+  30% {
+    transform: translate(-15%, 10%);
+  }
+  40% {
+    transform: translate(10%, -10%);
+  }
+  50% {
+    transform: translate(-10%, 10%);
+  }
+  60% {
+    transform: translate(15%, 5%);
+  }
+  70% {
+    transform: translate(-5%, 15%);
+  }
+  80% {
+    transform: translate(10%, 10%);
+  }
+  90% {
+    transform: translate(-15%, 0);
+  }
 }
