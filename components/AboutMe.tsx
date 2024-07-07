@@ -1,26 +1,12 @@
 import { motion } from "framer-motion";
 
 const AboutMe = () => {
-  const aboutVariants = {
-    hidden: {
-      opacity: 0,
-      y: -20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.3,
-        delay: 0.3,
-      },
-    },
-  };
-
   return (
     <motion.div
+      mode="wait"
       animate={{ opacity: 1, x: 0 }}
       initial={{ opacity: 0, x: -20 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.3 }}
       className="fixed bottom-8 right-8"
     >
       <p className="font-bebas_neue text-base leading-relaxed [&>span]:[display:block]">

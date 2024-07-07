@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 type Props = {
-  //   render: (mouseX: number, mouseY: number) => JSX.Element;
+  render: (mouseX: number, mouseY: number) => JSX.Element;
 };
 
 const MouseTracker = ({ render }: Props) => {
@@ -20,7 +20,7 @@ const MouseTracker = ({ render }: Props) => {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []); // Empty dependency array ensures the effect runs only once
+  }, []);
 
   return (
     <div

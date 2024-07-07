@@ -22,12 +22,12 @@ export default function RootLayout({
       <body
         className={`${bebasNeue.variable} ${feixen.variable} ${oldStandard.variable} ${jetbrains.variable}`}
       >
-        <div className="h-svh">
+        <div className="h-svh w-full font-feixen">
           <div className="noise"></div>
           <SidebarProvider>
             <ThemeProdiver>
               <Header />
-              <main className="relative h-[calc(100svh-87px)] font-feixen md:h-[calc(100svh-112px)]">
+              <main className="relative h-[calc(100svh-87px)] w-full md:h-[calc(100svh-114px)]">
                 <NavigationMenu />
                 <Container>{children}</Container>
               </main>

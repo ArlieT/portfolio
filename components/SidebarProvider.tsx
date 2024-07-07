@@ -14,7 +14,6 @@ export const SidebarProvider = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
-    console.log({ isOpen });
     setIsOpen(!isOpen);
   };
 

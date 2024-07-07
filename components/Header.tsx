@@ -41,10 +41,12 @@ const Header = () => {
   const nameVariants = {
     hidden: {
       opacity: 0,
+      width: 0,
       y: -20,
     },
     visible: {
       opacity: 1,
+      width: "auto",
       y: 0,
       transition: {
         duration: 0.3,
@@ -54,18 +56,18 @@ const Header = () => {
   };
 
   return (
-    <div className="sticky top-0 z-[999] bg-gray-50/5 bg-opacity-5 text-black text-foreground backdrop-blur-[1px] dark:bg-inherit">
-      <div className="flex items-center justify-between p-6 md:p-10">
+    <header className="sticky top-0 z-[999] w-full bg-gray-50/5 bg-opacity-5 text-black text-foreground backdrop-blur-[1px] dark:bg-inherit">
+      <div className="C/overflow-hidden flex w-full items-center justify-between p-6 md:p-10">
         <Link
           href={"/"}
-          className="flex items-center justify-center gap-2 rounded-full p-2 py-0 text-xl"
+          className="flex w-fit items-center justify-center gap-2 text-xl"
         >
           <div className="size-8 rounded-full bg-foreground"></div>
           <motion.div
             variants={nameVariants}
             initial="hidden"
             animate={isOpen ? "visible" : "hidden"}
-            className="flex"
+            className="hidden md:flex"
           >
             <div className="prevent-uppercase group overflow-x-hidden font-feixen transition-all">
               <h1 className="name text-2xl font-bold">
@@ -76,7 +78,7 @@ const Header = () => {
           </motion.div>
         </Link>
 
-        <nav className="flex list-none items-center justify-center gap-x-5 text-foreground">
+        <div className="flex items-center justify-center gap-x-5 text-foreground">
           <ThemeToggle />
           <motion.button
             onClick={toggleSidebar}
@@ -96,6 +98,7 @@ const Header = () => {
                 strokeWidth={2}
                 variants={{ hover: { rotate: 90 } }}
               >
+                <title>Menu</title>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -104,7 +107,6 @@ const Header = () => {
               </motion.svg>
             ) : (
               <motion.div
-                // variants={svgVariants}
                 initial="initial"
                 whileHover="hover"
                 style={{ display: "inline-block" }}
@@ -241,9 +243,9 @@ const Header = () => {
               </motion.div>
             )}
           </motion.button>
-        </nav>
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 

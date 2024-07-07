@@ -40,6 +40,7 @@ const ThemeToggle = () => {
             animate={theme === "light" ? "animate" : "exit"}
             variants={sunVariants}
             className="absolute"
+            title="Theme"
           >
             <PiSunBold size={17} />
           </motion.div>
