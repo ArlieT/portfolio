@@ -9,13 +9,23 @@ const Header = () => {
   const { isOpen, toggleSidebar } = useSidebar();
 
   const circleVariantsX = {
-    initial: { width: 1 },
-    hover: { width: 30, x: -12 },
+    initial: { width: 30, opacity: 0 },
+    hover: { width: 30, x: -12, opacity: 1 },
+  };
+
+  const VariantsX = {
+    initial: { width: 30, opacity: 1 },
+    hover: { width: 30, opacity: 1 },
   };
 
   const circleVariantsY = {
-    initial: { height: 1 },
-    hover: { height: 30, y: -12 },
+    initial: { height: 1, opacity: 0 },
+    hover: { height: 30, y: -12, opacity: 1 },
+  };
+
+  const VariantsY = {
+    initial: { height: 30, opacity: 1 },
+    hover: { height: 30, opacity: 1 },
   };
 
   const moveLeft = {
@@ -83,6 +93,23 @@ const Header = () => {
           <motion.button
             onClick={toggleSidebar}
             className="flex items-center justify-center transition-all"
+            whileHover="hover"
+            initial={{ rotate: 0 }}
+            animate="rest"
+            variants={{
+              hover: {
+                rotate: 45,
+                transition: {
+                  duration: 0.05,
+                },
+              },
+              rest: {
+                rotate: 0,
+                transition: {
+                  duration: 0.05,
+                },
+              },
+            }}
             style={{
               transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
               transition: "transform 0.3s ease",
@@ -91,18 +118,34 @@ const Header = () => {
             {isOpen ? (
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-                variants={{ hover: { rotate: 90 } }}
+                viewBox="0 0 48 48"
+                className="size-10 lg:size-12"
               >
                 <title>Menu</title>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
+                <motion.rect
+                  x="12"
+                  y="22"
+                  width="24"
+                  height="4"
+                  className=""
+                  rx="2"
+                  ry="2"
+                  fill="none"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  transform="rotate(45 24 24)"
+                />
+                <motion.rect
+                  x="12"
+                  y="22"
+                  width="24"
+                  height="4"
+                  rx="2"
+                  ry="2"
+                  fill="none"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  transform="rotate(-45 24 24)"
                 />
               </motion.svg>
             ) : (
@@ -114,8 +157,7 @@ const Header = () => {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 48 48"
-                  width="32"
-                  height="32"
+                  className="h-8 w-8 lg:size-12"
                   style={{ fill: "currentColor" }}
                 >
                   <title>Menu</title>
@@ -197,7 +239,6 @@ const Header = () => {
                     strokeWidth="2"
                   />
                   <motion.rect
-                    // initial="initial"
                     variants={circleVariantsX}
                     x="21"
                     y="21"
@@ -205,7 +246,7 @@ const Header = () => {
                     height="6px"
                     rx="3"
                     ry="3"
-                    opacity="0.75"
+                    opacity="0.5"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -218,7 +259,7 @@ const Header = () => {
                     height="6px"
                     rx="3"
                     ry="3"
-                    opacity="0.75"
+                    opacity="0.5"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -234,10 +275,10 @@ const Header = () => {
                     height="6px"
                     rx="3"
                     ry="3"
-                    opacity="0.75"
+                    opacity="1"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="3"
+                    strokeWidth="2"
                   ></motion.rect>
                 </svg>
               </motion.div>

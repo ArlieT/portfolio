@@ -42,7 +42,7 @@ const ThemeToggle = () => {
             className="absolute"
             title="Theme"
           >
-            <PiSunBold size={17} />
+            <PiSunBold className="size-4 md:size-6" />
           </motion.div>
           <motion.div
             key="moon"
@@ -51,7 +51,7 @@ const ThemeToggle = () => {
             exit="exit"
             variants={moonVariants}
           >
-            <PiMoonBold size={17} className="-scale-x-100" />
+            <PiMoonBold size={17} className="size-4 -scale-x-100 md:size-6" />
           </motion.div>
         </>
       )}

@@ -2,6 +2,7 @@
 import { cn } from "@/_util/helpers";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Dispatch, SetStateAction, useState } from "react";
 
 const Works = () => {
@@ -40,16 +41,22 @@ const Works = () => {
     visible: {
       opacity: 1,
       transition: {
+        duration: 1,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
         duration: 0.5,
       },
     },
   };
 
   return (
-    <div className="flex h-full items-center justify-center gap-x-4">
-      <div className="hidden h-full w-1/2 -translate-x-[20%] overflow-hidden rounded-3xl md:block md:-translate-x-[10%]">
+    <div className="flex h-full gap-x-4 pt-[140px]">
+      <div className="relative hidden h-full w-1/2 overflow-hidden rounded-tr-3xl md:block md:pr-12">
         {/* images */}
-        <div className="relative hidden h-full md:block">
+        <div className="absolute h-full w-[calc(100%-24px)]">
           {listOfProjects.map((project, index) => {
             return (
               <motion.div
@@ -57,12 +64,12 @@ const Works = () => {
                 variants={imageVariants}
                 initial="hidden"
                 animate={projecToShow === index ? "visible" : "hidden"}
-                className="absolute h-full w-full rounded-lg border bg-blue-500"
+                className="absolute h-full w-full border bg-blue-500"
               >
                 <motion.div
                   className="relative h-full w-full"
                   animate={{
-                    scale: projecToShow === index ? 1.2 : 1,
+                    scale: projecToShow === index ? 1.2 : 1.1,
                   }}
                   transition={{ duration: 0.5 }}
                 >
@@ -113,6 +120,32 @@ const Projects = ({ listOfProjects, setProjectToShow }: Props) => {
     },
   };
 
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: "-100%",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
   return (
     <div className="h-full w-full md:w-1/2 md:lg:pr-[240px]">
       <div className="flex justify-between border-b border-b-foreground py-6 md:border-b-2">
@@ -121,39 +154,55 @@ const Projects = ({ listOfProjects, setProjectToShow }: Props) => {
           {listOfProjects.length}
         </h5>
       </div>
-      <div className="font-variation-bold divide-y divide-foreground border-b border-b-foreground md:divide-y-2 md:border-b-2">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="font-variation-bold divide-y divide-foreground border-b border-b-foreground md:divide-y-2 md:border-b-2"
+      >
         {listOfProjects.map((project, index) => {
           return (
-            <motion.a
-              href={"/work/" + project.name}
+            <motion.div
               key={index + project.name}
-              whileHover="visible"
-              initial="hidden"
+              variants={itemVariants}
               onMouseEnter={() => {
                 setProjectToShow(index);
               }}
               onMouseLeave={() => {
                 setProjectToShow(null);
               }}
-              className="flex cursor-pointer items-center gap-x-2 py-4 text-xl md:py-6 md:text-2xl"
             >
-              <div className="relative flex w-full items-center justify-center">
-                <div className="absolute left-0">
-                  <motion.div variants={arrowVariants} className="relative">
-                    →
-                  </motion.div>
-                </div>
-                <div className="flex w-full justify-between">
-                  <motion.h4 variants={nameVaraints} className="pb-2">
-                    {project.name}
-                  </motion.h4>
-                  <span className="font-variation">{project.description}</span>
-                </div>
-              </div>
-            </motion.a>
+              <Link
+                href={"/work/" + project.name}
+                className="flex items-center gap-x-2 text-xl md:text-2xl"
+              >
+                <motion.div
+                  whileHover="visible"
+                  initial="hidden"
+                  className="relative flex w-full items-center justify-center py-4 md:py-6"
+                >
+                  <div className="absolute left-0">
+                    <motion.div
+                      variants={arrowVariants}
+                      className="relative pt-1.5"
+                    >
+                      →
+                    </motion.div>
+                  </div>
+                  <div className="flex w-full justify-between">
+                    <motion.h4 variants={nameVaraints} className="">
+                      {project.name}
+                    </motion.h4>
+                    <h4 className="font-variation flex items-center justify-center text-base">
+                      {project.description}
+                    </h4>
+                  </div>
+                </motion.div>
+              </Link>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };

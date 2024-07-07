@@ -46,8 +46,8 @@ const NavigationMenu = () => {
 
   const menuItems = [
     { label: "HOME", route: "/", before: "01" },
-    { label: "WORK", route: "work", before: "02" },
-    { label: "ABOUT ME", route: "about", before: "03" },
+    { label: "WORK", route: "/work", before: "02" },
+    { label: "ABOUT ME", route: "/about", before: "03" },
   ];
 
   useEffect(() => {

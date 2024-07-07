@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/_util/helpers";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -36,9 +37,15 @@ const Container = ({ children }: { children: React.ReactNode }) => {
   };
 
   const pathname = usePathname();
+  console.log(pathname);
   return (
     <div
-      className={`h-full w-full overflow-hidden p-6 md:p-8 ${isOpen ? "hidden" : "block"}`}
+      className={cn(
+        `h-full w-full overflow-hidden p-6 md:p-8 ${isOpen ? "hidden" : "block"}`,
+        {
+          "md:p-0": pathname === "/work",
+        },
+      )}
     >
       <AnimatePresence mode="wait">
         {!isOpen && (
