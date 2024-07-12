@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   darkMode: ["selector"],
@@ -13,6 +14,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        accent: "var(--accent-color)",
+        "accent-light": "var(--accent-color-light)",
       },
       fontFamily: {
         jetbrains_mono: ["var(--font-jetbrains-mono)"],
@@ -22,6 +25,14 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".headings": {
+          "content-visibility": "auto",
+        },
+      });
+    }),
+  ],
 };
 export default config;

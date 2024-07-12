@@ -18,22 +18,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${bebasNeue.variable} ${feixen.variable} ${oldStandard.variable} ${jetbrains.variable}`}
       >
-        <div className="h-svh w-full font-feixen">
-          <div className="noise"></div>
-          <SidebarProvider>
-            <ThemeProdiver>
-              <Header />
-              <main className="relative h-[calc(100svh-87px)] w-full md:h-[calc(100svh-114px)]">
-                <NavigationMenu />
-                <Container>{children}</Container>
-              </main>
-            </ThemeProdiver>
-          </SidebarProvider>
-        </div>
+        <SidebarProvider>
+          <ThemeProdiver>
+            <NavigationMenu />
+            <Header />
+            <Container>{children}</Container>
+          </ThemeProdiver>
+        </SidebarProvider>
+        <div className="noise"></div>
       </body>
     </html>
   );

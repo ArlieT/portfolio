@@ -7,10 +7,10 @@ const AboutMe = () => {
       animate={{ opacity: 1, x: 0 }}
       initial={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.3 }}
-      className="fixed bottom-8 right-8"
+      className="fixed bottom-2 right-2 md:bottom-4 md:right-4"
     >
-      <p className="font-bebas_neue text-base leading-relaxed [&>span]:[display:block]">
-        <span className="font-bold opacity-55">About</span>
+      <p className="font-bebas_neue text-sm leading-relaxed tracking-wide md:text-base [&>span]:[display:block]">
+        <span className="font-bold opacity-55">About Me</span>
         <span>Born in 2000</span>
         <span>in Sanfernando, Philippines</span>
         <span>Web Developer</span>

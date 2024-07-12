@@ -9,7 +9,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
   const { isOpen } = useSidebar();
   const variants = {
     hidden: {
-      opacity: 50,
+      opacity: 0,
       y: "-100%",
       transition: {
         when: "beforeChildren",
@@ -39,11 +39,11 @@ const Container = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   console.log(pathname);
   return (
-    <div
+    <main
       className={cn(
-        `h-full w-full overflow-hidden p-6 md:p-8 ${isOpen ? "hidden" : "block"}`,
+        `h-[calc(100svh-87px)] w-full p-4 md:h-[calc(100svh-128px)] md:p-8 ${isOpen ? "hidden" : "block"}`,
         {
-          "md:p-0": pathname === "/work",
+          "p-0 md:p-0": pathname.includes("/work"),
         },
       )}
     >
@@ -51,17 +51,17 @@ const Container = ({ children }: { children: React.ReactNode }) => {
         {!isOpen && (
           <motion.div
             key={pathname}
-            className="h-full w-full"
             initial="hidden"
             animate="enter"
             exit="exit"
             variants={variants}
+            className="h-full w-full"
           >
             {children}
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </main>
   );
 };
 

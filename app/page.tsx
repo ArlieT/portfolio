@@ -59,7 +59,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative flex min-h-full flex-col items-center justify-center overflow-hidden">
+    <div className="relative flex h-full flex-col items-center justify-center overflow-hidden">
       <motion.div
         // variants={containerVariants}
         initial="hidden"
@@ -69,7 +69,7 @@ export default function Home() {
         <motion.p
           custom={5}
           variants={itemVariants}
-          className="font-variation-bold text-balance text-center uppercase tracking-wider md:text-2xl lg:text-[2.5rem]"
+          className="font-variation-bold dark:text-accent-light mb-2 text-balance text-center uppercase tracking-wider md:text-2xl lg:text-[2.5rem]"
         >
           <span className="text-outline">Hi, I&apos;m </span>
           Arlie Torres

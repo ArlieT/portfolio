@@ -55,13 +55,12 @@ const NavigationMenu = () => {
       setIsOpenWithDelay(isOpen);
     }, 300);
   }, [isOpen]);
-
   return (
     <AnimatePresence>
       {isOpenWithDelay && (
-        <motion.nav className="c/translate-y-[-72px] absolute left-0 top-0 z-[999] flex h-full w-full items-center text-4xl text-foreground md:justify-center md:text-[3.5rem]">
+        <motion.nav className="c/translate-y-[-72px] absolute left-0 top-0 z-[999] flex h-full min-h-[calc(100svh-87px)] w-full items-center text-4xl text-foreground md:min-h-[calc(100svh-128px)] md:justify-center md:text-[3.5rem] lg:text-[4.5rem]">
           <div className="nav-menu flex items-center justify-center md:w-1/2">
-            <div className="flex h-full w-full flex-col items-start gap-4 overflow-hidden p-4 text-left md:items-center md:gap-6 [&>*]:block [&>button>span]:transition-all [&>button>span]:duration-200 [&>button>span]:ease-out">
+            <div className="flex h-full w-full flex-col items-start gap-4 overflow-hidden p-4 text-left md:items-center md:gap-6 lg:gap-10 [&>*]:block [&>button>span]:transition-all [&>button>span]:duration-200 [&>button>span]:ease-out">
               <>
                 {menuItems.map((item, index) => (
                   <motion.button
@@ -73,7 +72,7 @@ const NavigationMenu = () => {
                     animate={isOpen ? "visible" : "hidden"}
                     exit="exit"
                     before={item.before}
-                    className={`before:font-variation w-full text-left before:mr-2 before:size-1 before:text-sm before:font-normal before:content-[attr(before)]`}
+                    className={`before:font-variation w-full text-left before:mr-2 before:size-1 before:text-sm before:font-normal before:tracking-widest before:content-[attr(before)]`}
                   >
                     <span>{item.label}</span>
                   </motion.button>
@@ -83,16 +82,24 @@ const NavigationMenu = () => {
                   initial="hidden"
                   animate={isOpen ? "visible" : "hidden"}
                   custom={menuItems.length}
-                  className="font-variation !flex w-full gap-x-4 text-sm md:gap-x-6 md:text-2xl"
+                  className="font-variation !flex w-full gap-x-4 text-sm md:gap-x-6 md:text-xl"
                 >
-                  <Link href="" className="group overflow-x-hidden pb-2">
+                  <Link
+                    target="_blank"
+                    href={process.env.NEXT_PUBLIC_INSTAGRAM_URL || ""}
+                    className="group overflow-x-hidden pb-2"
+                  >
                     <span className="mr-2">↗</span>
                     <span>Instagram</span>
                     <Underline />
                   </Link>
-                  <Link href="" className="group overflow-x-hidden">
+                  <Link
+                    target="_blank"
+                    href={process.env.NEXT_PUBLIC_GITHUB_URL || ""}
+                    className="group overflow-x-hidden"
+                  >
                     <span className="mr-2">↗</span>
-                    <span>Email</span>
+                    <span>Github</span>
                     <Underline />
                   </Link>
                 </motion.div>

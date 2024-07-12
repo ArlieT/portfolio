@@ -1,5 +1,6 @@
 import { ThemeContext } from "@/_lib/themeContext";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { use, useEffect, useState } from "react";
 import { PiMoonBold, PiSunBold } from "react-icons/pi"; // Import your icons
 
@@ -15,6 +16,7 @@ const moonVariants = {
 };
 
 const ThemeToggle = () => {
+  const pathname = usePathname();
   const { theme, toggleTheme } = use(ThemeContext);
   const [initialLoad, setInitialLoad] = useState(true);
 
@@ -27,6 +29,7 @@ const ThemeToggle = () => {
     }, 0);
   }, []);
 
+  if (pathname.includes("/work")) return null;
   return (
     <button
       onClick={() => toggleTheme(theme === "light" ? "dark" : "light")}
