@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-const AboutMe = () => {
+function AboutMe() {
   return (
     <motion.div
       mode="wait"
@@ -19,6 +19,6 @@ const AboutMe = () => {
       </p>
     </motion.div>
   );
-};
+}
 
 export default AboutMe;

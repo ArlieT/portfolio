@@ -1,6 +1,8 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 const page = ({ params }: { params: { workId: string } }) => {
+  console.log(params.workId);
+
   return (
     <div className="relative flex h-auto w-full flex-col items-center gap-4 border md:gap-6 md:p-0 md:pt-[500px] lg:pt-[450px]">
       <div className="mx-auto w-[90%] md:absolute md:-top-[400px] md:w-full lg:-top-96 lg:w-[80%]">
@@ -73,5 +75,4 @@ const page = ({ params }: { params: { workId: string } }) => {
     </div>
   );
 };
-
 export default page;

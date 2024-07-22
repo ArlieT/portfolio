@@ -11,6 +11,7 @@
   "dependencies": {
     "babel-plugin-react-compiler": "^0.0.0-experimental-938cd9a-20240601",
     "clsx": "^2.1.1",
+    "eslint-config-airbnb-typescript": "^18.0.0",
     "framer-motion": "12.0.0-alpha.0",
     "next": "^15.0.0-rc.0",
     "react": "^19.0.0-rc-fb9a90fa48-20240614",
@@ -25,6 +26,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "15.0.0-rc.0",
     "postcss": "^8",
     "prettier": "^3.3.2",

@@ -1,36 +1,40 @@
-"use client";
-import { ThemeContext } from "@/_lib/themeContext";
-import { useEffect, useState } from "react";
+'use client';
 
-const ThemeProdiver = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState("light");
+import { ThemeContext } from '@/_lib/themeContext';
+import { useEffect, useState } from 'react';
+
+function ThemeProdiver({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
     if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches) ||
+      localStorage.theme === 'dark'
     ) {
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove('dark');
     }
 
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove('dark');
     }
 
-    localStorage.setItem("theme", theme);
+    localStorage.setItem('theme', theme);
 
-    // localStorage.removeItem("theme"); when the user explicitly chooses to respect the OS preference
+    // localStorage.removeItem("theme");
+    // when the user explicitly chooses to respect the OS preference
   }, [theme]);
 
   return (
     <ThemeContext.Provider
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         theme,
+        // eslint-disable-next-line @typescript-eslint/no-shadow
         toggleTheme: (theme: string) => {
           setTheme(theme);
         },
@@ -39,6 +43,6 @@ const ThemeProdiver = ({ children }: { children: React.ReactNode }) => {
       {children}
     </ThemeContext.Provider>
   );
-};
+}
 
 export default ThemeProdiver;

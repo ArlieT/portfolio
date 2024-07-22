@@ -1,36 +1,37 @@
-"use client";
-import { cn } from "@/_util/helpers";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { Dispatch, SetStateAction, useState } from "react";
+'use client';
 
-const Works = () => {
+import { cn } from '@/_util/helpers';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Dispatch, SetStateAction, useState } from 'react';
+
+function Works() {
   const [projecToShow, setProjectToShow] = useState<number | null>(null);
   const listOfProjects = [
     {
-      name: "proj1",
-      description: "IOT",
+      name: 'proj1',
+      description: 'IOT',
       // url: "https://github.com/Arlyor/nextjs-portfolio",
-      image: "/images/projects/proj1.avif",
+      image: '/images/projects/proj1.avif',
     },
     {
-      name: "proj2",
-      description: "test",
+      name: 'proj2',
+      description: 'test',
       // url: "https://github.com/Arlyor/nextjs-portfolio",
-      image: "/images/projects/proj2.avif",
+      image: '/images/projects/proj2.avif',
     },
     {
-      name: "proj2",
-      description: "test",
+      name: 'proj2',
+      description: 'test',
       // url: "https://github.com/Arlyor/nextjs-portfolio",
-      image: "/images/projects/proj1.avif",
+      image: '/images/projects/proj1.avif',
     },
     {
-      name: "proj2",
-      description: "test",
+      name: 'proj2',
+      description: 'test',
       // url: "https://github.com/Arlyor/nextjs-portfolio",
-      image: "/images/projects/proj2.avif",
+      image: '/images/projects/proj2.avif',
     },
   ];
 
@@ -51,51 +52,49 @@ const Works = () => {
       },
     },
   };
-
   return (
     <div className="flex h-full gap-x-4 pt-[140px]">
       <div className="relative hidden h-full w-1/2 overflow-hidden rounded-tr-3xl md:block md:pr-12">
         {/* images */}
         <div className="absolute h-full w-[calc(100%-24px)]">
-          {listOfProjects.map((project, index) => {
-            return (
+          {listOfProjects.map((project, index) => (
+            <motion.div
+              key={project.name}
+              variants={imageVariants}
+              initial="hidden"
+              animate={projecToShow === index ? 'visible' : 'hidden'}
+              className="absolute h-full w-full border bg-blue-500"
+            >
               <motion.div
-                key={index + project.name}
-                variants={imageVariants}
-                initial="hidden"
-                animate={projecToShow === index ? "visible" : "hidden"}
-                className="absolute h-full w-full border bg-blue-500"
+                className="relative h-full w-full"
+                animate={{
+                  scale: projecToShow === index ? 1.2 : 1.1,
+                }}
+                transition={{ duration: 0.5 }}
               >
-                <motion.div
-                  className="relative h-full w-full"
-                  animate={{
-                    scale: projecToShow === index ? 1.2 : 1.1,
-                  }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <Image
-                    sizes="100vw"
-                    alt={project.name}
-                    src={project.image}
-                    fill
-                    className={cn(
-                      "absolute inset-0 object-cover object-center",
-                      {},
-                    )}
-                  />
-                </motion.div>
+                <Image
+                  sizes="100vw"
+                  alt={project.name}
+                  src={project.image}
+                  fill
+                  className={cn(
+                    'absolute inset-0 object-cover object-center',
+                    {},
+                  )}
+                />
               </motion.div>
-            );
-          })}
+            </motion.div>
+          ))}
         </div>
       </div>
+      {/* eslint-disable-next-line @typescript-eslint/no-use-before-define */}
       <Projects
         setProjectToShow={setProjectToShow}
         listOfProjects={listOfProjects}
       />
     </div>
   );
-};
+}
 
 export default Works;
 
@@ -104,19 +103,19 @@ type Props = {
   listOfProjects: any[];
 };
 
-const Projects = ({ listOfProjects, setProjectToShow }: Props) => {
+function Projects({ listOfProjects, setProjectToShow }: Props) {
   const arrowVariants = {
-    hidden: { x: "-50%", opacity: 0 },
-    visible: { x: "0%", opacity: 1 },
+    hidden: { x: '-50%', opacity: 0 },
+    visible: { x: '0%', opacity: 1 },
 
-    exit: { x: "-100%", opacity: 0 },
+    exit: { x: '-100%', opacity: 0 },
   };
 
   const nameVaraints = {
     hidden: { x: 0 },
     visible: {
       opacity: 1,
-      x: "24px",
+      x: '24px',
     },
   };
 
@@ -135,7 +134,7 @@ const Projects = ({ listOfProjects, setProjectToShow }: Props) => {
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: "-100%",
+      y: '-100%',
     },
     visible: {
       opacity: 1,
@@ -160,49 +159,47 @@ const Projects = ({ listOfProjects, setProjectToShow }: Props) => {
         animate="visible"
         className="font-variation-bold divide-y divide-foreground border-b border-b-foreground md:divide-y-2 md:border-b-2"
       >
-        {listOfProjects.map((project, index) => {
-          return (
-            <motion.div
-              key={index + project.name}
-              variants={itemVariants}
-              onMouseEnter={() => {
-                setProjectToShow(index);
-              }}
-              onMouseLeave={() => {
-                setProjectToShow(null);
-              }}
+        {listOfProjects.map((project, index) => (
+          <motion.div
+            key={project.name}
+            variants={itemVariants}
+            onMouseEnter={() => {
+              setProjectToShow(index);
+            }}
+            onMouseLeave={() => {
+              setProjectToShow(null);
+            }}
+          >
+            <Link
+              href={`/work/${project.name}`}
+              className="flex items-center gap-x-2 text-xl md:text-2xl"
             >
-              <Link
-                href={"/work/" + project.name}
-                className="flex items-center gap-x-2 text-xl md:text-2xl"
+              <motion.div
+                whileHover="visible"
+                initial="hidden"
+                className="relative flex w-full items-center justify-center py-4 md:py-6"
               >
-                <motion.div
-                  whileHover="visible"
-                  initial="hidden"
-                  className="relative flex w-full items-center justify-center py-4 md:py-6"
-                >
-                  <div className="absolute left-0">
-                    <motion.div
-                      variants={arrowVariants}
-                      className="relative pt-1.5"
-                    >
-                      →
-                    </motion.div>
-                  </div>
-                  <div className="flex w-full justify-between">
-                    <motion.h4 variants={nameVaraints} className="">
-                      {project.name}
-                    </motion.h4>
-                    <h4 className="font-variation flex items-center justify-center text-base">
-                      {project.description}
-                    </h4>
-                  </div>
-                </motion.div>
-              </Link>
-            </motion.div>
-          );
-        })}
+                <div className="absolute left-0">
+                  <motion.div
+                    variants={arrowVariants}
+                    className="relative pt-1.5"
+                  >
+                    →
+                  </motion.div>
+                </div>
+                <div className="flex w-full justify-between">
+                  <motion.h4 variants={nameVaraints} className="">
+                    {project.name}
+                  </motion.h4>
+                  <h4 className="font-variation flex items-center justify-center text-base">
+                    {project.description}
+                  </h4>
+                </div>
+              </motion.div>
+            </Link>
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );
-};
+}

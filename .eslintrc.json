@@ -1,3 +1,18 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "max-len": "warn",
+    "no-unused-vars": "off",
+    "react/react-in-jsx-scope": "off",
+    "eslint-plugin-vue/operator-linebreak": "off",
+    "react/require-default-props": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "eslint-plugin-vue/require-default-prop": "off",
+    "linebreak-style": "off",
+    "object-curly-newline": "off",
+    "operator-linebreak": "off"
+  }
 }
