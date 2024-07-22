@@ -20,16 +20,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${bebasNeue.variable} ${feixen.variable} ${oldStandard.variable} ${jetbrains.variable}`}
+        className={`h-dvh ${bebasNeue.variable} ${feixen.variable} ${oldStandard.variable} ${jetbrains.variable}`}
       >
-        <SidebarProvider>
-          <ThemeProdiver>
-            <NavigationMenu />
-            <Header />
-            <Container>{children}</Container>
-          </ThemeProdiver>
-        </SidebarProvider>
-        <div className="noise" />
+        <div className="flex h-full flex-col">
+          <SidebarProvider>
+            <ThemeProdiver>
+              <NavigationMenu />
+              <Header />
+              <Container>{children}</Container>
+              <div className="noise" />
+            </ThemeProdiver>
+          </SidebarProvider>
+        </div>
       </body>
     </html>
   );

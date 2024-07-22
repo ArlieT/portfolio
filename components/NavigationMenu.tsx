@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Underline } from './Helpers';
+import Underline from './Helpers';
 import { useSidebar } from './SidebarProvider';
 
 function NavigationMenu() {

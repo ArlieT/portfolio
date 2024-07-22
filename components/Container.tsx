@@ -40,29 +40,25 @@ function Container({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <main
-      className={cn(
-        `h-[calc(100svh-87px)] w-full p-4 md:h-[calc(100svh-128px)] md:p-8 ${isOpen ? 'hidden' : 'block'}`,
-        {
-          'p-0 md:p-0': pathname.includes('/work'),
-        },
+    <AnimatePresence mode="wait">
+      {!isOpen && (
+        <motion.div
+          key={pathname}
+          initial="hidden"
+          animate="enter"
+          exit="exit"
+          variants={variants}
+          className={cn(
+            'c/min-h-[calc(100svh-87px)] c/md:min-h-[calc(100svh-128px)] h-full w-full p-4 md:p-8',
+            {
+              'p-0 md:p-0': pathname.includes('/work'),
+            },
+          )}
+        >
+          {children}
+        </motion.div>
       )}
-    >
-      <AnimatePresence mode="wait">
-        {!isOpen && (
-          <motion.div
-            key={pathname}
-            initial="hidden"
-            animate="enter"
-            exit="exit"
-            variants={variants}
-            className="h-full w-full"
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </main>
+    </AnimatePresence>
   );
 }
 

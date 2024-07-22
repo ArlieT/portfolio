@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Underline } from './Helpers';
+import Underline from './Helpers';
 import { useSidebar } from './SidebarProvider';
 import ThemeToggle from './ThemeToggle';
 
@@ -57,9 +57,10 @@ function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-[999] max-h-[128px] w-full text-foreground backdrop-blur-[1px]">
+    <header className="c/max-h-[128px] sticky top-0 z-[999] max-h-[12%] w-full text-foreground backdrop-blur-[1px]">
       <div className="C/overflow-hidden flex w-full items-center justify-between p-6 md:p-10">
         <Link
+          onClick={toggleSidebar}
           href="/"
           className="flex w-fit items-center justify-center gap-2 text-xl"
         >
@@ -72,9 +73,7 @@ function Header() {
           >
             <div className="prevent-uppercase group overflow-x-hidden font-feixen transition-all">
               <h1 className="name text-2xl font-bold">
-                Arlie Torres /
-                {' '}
-                <span className="text-sm">Web Developer</span>
+                Arlie Torres / <span className="text-sm">Web Developer</span>
               </h1>
               <Underline />
             </div>
@@ -85,10 +84,10 @@ function Header() {
           <ThemeToggle />
           <motion.button
             onClick={toggleSidebar}
-            className="flex items-center justify-center transition-all"
+            className="items-center justify-center transition-all"
             whileHover="hover"
-            initial={{ rotate: 0 }}
             animate={isOpen ? 'hover' : 'rest'}
+            initial="rest"
             variants={{
               hover: {
                 rotate: 45,
@@ -106,146 +105,142 @@ function Header() {
               },
             }}
           >
-            <motion.div
-              initial="initial"
-              whileHover="hover"
-              style={{ display: 'inline-block' }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 48"
+              className="h-8 w-8 lg:size-12"
+              style={{ fill: 'currentColor' }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 48 48"
-                className="h-8 w-8 lg:size-12"
-                style={{ fill: 'currentColor' }}
-              >
-                <title>Menu</title>
-                <motion.circle
-                  cx="12"
-                  cy="12"
-                  r="3"
-                  opacity="1"
-                  className="opacity"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.circle
-                  cx="24"
-                  cy="12"
-                  r="3"
-                  opacity="1"
-                  variants={moveTop}
-                  animate={!isOpen ? 'initial' : 'hover'}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.circle
-                  cx="36"
-                  cy="12"
-                  r="3"
-                  opacity="1"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.circle
-                  cx="36"
-                  cy="24"
-                  r="3"
-                  opacity="1"
-                  variants={moveRight}
-                  animate={!isOpen ? 'initial' : 'hover'}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.circle
-                  cx="36"
-                  cy="36"
-                  r="3"
-                  opacity="1"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.circle
-                  cx="24"
-                  cy="36"
-                  r="3"
-                  opacity="1"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  variants={moveBottom}
-                  animate={!isOpen ? 'initial' : 'hover'}
-                />
-                <motion.circle
-                  cx="12"
-                  cy="36"
-                  r="3"
-                  opacity="1"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.circle
-                  cx="12"
-                  cy="24"
-                  r="3"
-                  opacity="1"
-                  variants={moveLeft}
-                  animate={!isOpen ? 'initial' : 'hover'}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.rect
-                  variants={circleVariantsX}
-                  animate={!isOpen ? 'initial' : 'hover'}
-                  x="21"
-                  y="21"
-                  width="6px"
-                  height="6px"
-                  rx="3"
-                  ry="3"
-                  opacity="0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.rect
-                  variants={circleVariantsY}
-                  animate={!isOpen ? 'initial' : 'hover'}
-                  x="21"
-                  y="21"
-                  width="6px"
-                  height="6px"
-                  rx="3"
-                  ry="3"
-                  opacity="0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.rect
-                  variants={{
-                    initial: { opacity: 1 },
-                    hover: { opacity: 0 },
-                  }}
-                  animate={!isOpen ? 'initial' : 'hover'}
-                  x="21"
-                  y="21"
-                  width="6px"
-                  height="6px"
-                  rx="3"
-                  ry="3"
-                  opacity="1"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-              </svg>
-            </motion.div>
+              <title>Menu</title>
+              <motion.circle
+                cx="12"
+                cy="12"
+                r="3"
+                opacity="1"
+                className="opacity"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <motion.circle
+                cx="24"
+                cy="12"
+                r="3"
+                opacity="1"
+                variants={moveTop}
+                initial="initial"
+                whileHover="hover"
+                animate={!isOpen ? 'initial' : 'hover'}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <motion.circle
+                cx="36"
+                cy="12"
+                r="3"
+                opacity="1"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <motion.circle
+                cx="36"
+                cy="24"
+                r="3"
+                opacity="1"
+                variants={moveRight}
+                animate={!isOpen ? 'initial' : 'hover'}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <motion.circle
+                cx="36"
+                cy="36"
+                r="3"
+                opacity="1"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <motion.circle
+                cx="24"
+                cy="36"
+                r="3"
+                opacity="1"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                variants={moveBottom}
+                animate={!isOpen ? 'initial' : 'hover'}
+              />
+              <motion.circle
+                cx="12"
+                cy="36"
+                r="3"
+                opacity="1"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <motion.circle
+                cx="12"
+                cy="24"
+                r="3"
+                opacity="1"
+                variants={moveLeft}
+                animate={!isOpen ? 'initial' : 'hover'}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <motion.rect
+                variants={circleVariantsX}
+                animate={!isOpen ? 'initial' : 'hover'}
+                x="21"
+                y="21"
+                width="6px"
+                height="6px"
+                rx="3"
+                ry="3"
+                opacity="0.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <motion.rect
+                variants={circleVariantsY}
+                animate={!isOpen ? 'initial' : 'hover'}
+                x="21"
+                y="21"
+                width="6px"
+                height="6px"
+                rx="3"
+                ry="3"
+                opacity="0.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <motion.rect
+                variants={{
+                  initial: { opacity: 1 },
+                  hover: { opacity: 0 },
+                }}
+                animate={!isOpen ? 'initial' : 'hover'}
+                x="21"
+                y="21"
+                width="6px"
+                height="6px"
+                rx="3"
+                ry="3"
+                opacity="1"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+            </svg>
           </motion.button>
         </div>
       </div>

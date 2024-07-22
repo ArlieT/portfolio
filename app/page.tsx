@@ -32,12 +32,12 @@ export default function Home() {
   };
 
   return (
-    <div className="relative flex h-full flex-col items-center justify-center overflow-hidden">
+    <div className="flex h-full items-center justify-center">
       <motion.div
         // variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="text-lg md:text-2xl lg:text-[2.5rem]"
+        className="relative -top-20 text-lg md:text-2xl md:text-[2.5rem]"
       >
         <motion.p
           custom={5}
