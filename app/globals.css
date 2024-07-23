@@ -62,15 +62,15 @@ body {
 .font-variation-bold {
   font-family: var(--font-feixen), Arial, Helvetica, sans-serif;
   font-variation-settings:
-    "wght" 800,
-    "wdth" 125;
+    'wght' 800,
+    'wdth' 125;
 }
 
 .font-variation {
   font-family: var(--font-feixen), Arial, Helvetica, sans-serif;
   font-variation-settings:
-    "wght" 500,
-    "wdth" 125;
+    'wght' 500,
+    'wdth' 125;
 }
 
 .text-outline {
@@ -91,14 +91,14 @@ body {
   display: block;
   font-family: var(--font-feixen), Arial, Helvetica, sans-serif;
   font-variation-settings:
-    "wght" 800,
-    "wdth" 125;
+    'wght' 800,
+    'wdth' 125;
 }
 
 .nav-menu button span:hover {
   font-variation-settings:
-    "wght" 800,
-    "wdth" 100;
+    'wght' 800,
+    'wdth' 100;
 }
 
 .flip-horizontal {

@@ -16,21 +16,27 @@ function Works() {
       image: '/images/projects/proj1.avif',
     },
     {
-      name: 'proj2',
+      name: 'proj3',
       description: 'test',
       // url: "https://github.com/Arlyor/nextjs-portfolio",
       image: '/images/projects/proj2.avif',
     },
     {
-      name: 'proj2',
+      name: 'proj4',
       description: 'test',
       // url: "https://github.com/Arlyor/nextjs-portfolio",
       image: '/images/projects/proj1.avif',
     },
     {
-      name: 'proj2',
+      name: 'proj5',
       description: 'test',
-      // url: "https://github.com/Arlyor/nextjs-portfolio",
+      // url: "https://github.com/arlyor/nextjs-portfolio",
+      image: '/images/projects/proj2.avif',
+    },
+    {
+      name: 'proj6',
+      description: 'test',
+      // url: "https://github.com/arlyor/nextjs-portfolio",
       image: '/images/projects/proj2.avif',
     },
   ];
@@ -53,10 +59,10 @@ function Works() {
     },
   };
   return (
-    <div className="flex h-full gap-x-4 pt-[140px]">
-      <div className="relative hidden h-full w-1/2 overflow-hidden rounded-tr-3xl md:block md:pr-12">
+    <div className="flex h-full gap-x-4 border border-red-500 p-4 pt-[140px] md:p-8">
+      <div className="relative hidden h-fit min-h-max w-1/2 overflow-hidden rounded-tr-3xl border p-2 md:block md:pr-12">
         {/* images */}
-        <div className="absolute h-full w-[calc(100%-24px)]">
+        <div className="absolute h-full w-[calc(100%-24px)] border">
           {listOfProjects.map((project, index) => (
             <motion.div
               key={project.name}
@@ -159,7 +165,7 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
         animate="visible"
         className="font-variation-bold divide-y divide-foreground border-b border-b-foreground md:divide-y-2 md:border-b-2"
       >
-        {listOfProjects.map((project, index) => (
+        {[...listOfProjects].slice(0, 1).map((project, index) => (
           <motion.div
             key={project.name}
             variants={itemVariants}

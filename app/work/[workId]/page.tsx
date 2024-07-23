@@ -4,8 +4,8 @@ const page = ({ params }: { params: { workId: string } }) => {
   console.log(params.workId);
 
   return (
-    <div className="relative flex h-auto w-full flex-col items-center gap-4 border md:gap-6 md:p-0 md:pt-[500px] lg:pt-[450px]">
-      <div className="mx-auto w-[90%] md:absolute md:-top-[400px] md:w-full lg:-top-96 lg:w-[80%]">
+    <div className="flex flex-col items-center gap-4 md:gap-6 md:p-0 md:pt-[500px] lg:pt-[450px]">
+      <div className="z-[9999999] mx-auto w-[90%] md:absolute md:-top-[400px] md:w-full lg:-top-96 lg:w-[80%]">
         <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-3xl md:h-[810px] md:rounded-[48px]">
           <Image
             src="/images/projects/proj1.avif"
@@ -16,7 +16,7 @@ const page = ({ params }: { params: { workId: string } }) => {
         </div>
       </div>
 
-      <div className="w-[78%] space-y-4">
+      <div className="w-[90%] space-y-4 lg:w-[80%]">
         <div className="font-variation w-full space-y-2">
           <h1 className="font-variation-bold heading">Buraindo</h1>
           <hr className="h-[2.5px] w-full bg-foreground" />

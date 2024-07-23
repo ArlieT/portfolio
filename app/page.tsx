@@ -5,14 +5,9 @@ import AboutMe from '@/components/AboutMe';
 import Underline from '@/components/Helpers';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useEffect } from 'react';
 import { tv } from 'tailwind-variants';
 
 export default function Home() {
-  useEffect(() => {
-    setTimeout(() => {}, 1000);
-  }, []);
-
   const itemVariants = {
     hidden: {
       y: '-100%',
@@ -32,9 +27,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-full items-center justify-center">
+    <div className="flex h-full flex-1 items-center justify-center border border-indigo-500">
       <motion.div
-        // variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="relative -top-20 text-lg md:text-2xl md:text-[2.5rem]"

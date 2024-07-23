@@ -57,10 +57,14 @@ function Header() {
   };
 
   return (
-    <header className="c/max-h-[128px] sticky top-0 z-[999] max-h-[12%] w-full text-foreground backdrop-blur-[1px]">
+    <header className="c/max-h-[128px] fixed top-0 z-[999] max-h-[12%] w-full text-foreground backdrop-blur-[1px]">
       <div className="C/overflow-hidden flex w-full items-center justify-between p-6 md:p-10">
         <Link
-          onClick={toggleSidebar}
+          onClick={() => {
+            if (isOpen) {
+              toggleSidebar();
+            }
+          }}
           href="/"
           className="flex w-fit items-center justify-center gap-2 text-xl"
         >
