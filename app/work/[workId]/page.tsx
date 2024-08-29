@@ -94,7 +94,7 @@ const page = ({ params }: { params: { workId: string } }) => {
 
         {currentWork?.images.map((image, index) => (
           <div
-            key={index}
+            key={image}
             className="custom-shadow relative mx-auto h-full w-full overflow-hidden"
           >
             <Image
