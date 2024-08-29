@@ -29,7 +29,7 @@ function ThemeToggle() {
     }, 0);
   }, []);
 
-  if (pathname.includes('/work')) return null;
+  if (pathname.includes('/works')) return null;
   return (
     <button
       type="button"

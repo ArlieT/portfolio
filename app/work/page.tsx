@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/_util/helpers';
+import { works } from '@/constants/works';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,38 +9,15 @@ import { Dispatch, SetStateAction, useState } from 'react';
 
 function Works() {
   const [projecToShow, setProjectToShow] = useState<number | null>(null);
-  const listOfProjects = [
-    {
-      name: 'proj1',
-      description: 'IOT',
-      // url: "https://github.com/Arlyor/nextjs-portfolio",
-      image: '/images/projects/proj1.avif',
-    },
-    {
-      name: 'proj3',
-      description: 'test',
-      // url: "https://github.com/Arlyor/nextjs-portfolio",
-      image: '/images/projects/proj2.avif',
-    },
-    {
-      name: 'proj4',
-      description: 'test',
-      // url: "https://github.com/Arlyor/nextjs-portfolio",
-      image: '/images/projects/proj1.avif',
-    },
-    {
-      name: 'proj5',
-      description: 'test',
-      // url: "https://github.com/arlyor/nextjs-portfolio",
-      image: '/images/projects/proj2.avif',
-    },
-    {
-      name: 'proj6',
-      description: 'test',
-      // url: "https://github.com/arlyor/nextjs-portfolio",
-      image: '/images/projects/proj2.avif',
-    },
-  ];
+
+  const listOfWorks = works.map((work, index) => ({
+    image: work.mainImage || '',
+    name: work.name,
+    key: work.key,
+    id: work.id,
+    category: work.category,
+  }));
+  console.log({ listOfWorks });
 
   const imageVariants = {
     hidden: {
@@ -59,17 +37,17 @@ function Works() {
     },
   };
   return (
-    <div className="flex h-full gap-x-4 border border-red-500 p-4 pt-[140px] md:p-8">
-      <div className="relative hidden h-fit min-h-max w-1/2 overflow-hidden rounded-tr-3xl border p-2 md:block md:pr-12">
+    <div className="c/p-4 c/md:p-8 flex h-full gap-x-4 pt-[140px]">
+      <div className="relative hidden h-full min-h-max w-1/2 overflow-hidden rounded-tr-3xl p-2 md:block md:pr-12">
         {/* images */}
-        <div className="absolute h-full w-[calc(100%-24px)] border">
-          {listOfProjects.map((project, index) => (
+        <div className="absolute left-3 h-full w-[calc(100%-24px)]">
+          {listOfWorks.map((project, index) => (
             <motion.div
               key={project.name}
               variants={imageVariants}
               initial="hidden"
               animate={projecToShow === index ? 'visible' : 'hidden'}
-              className="absolute h-full w-full border bg-blue-500"
+              className="absolute h-full w-full border"
             >
               <motion.div
                 className="relative h-full w-full"
@@ -96,7 +74,7 @@ function Works() {
       {/* eslint-disable-next-line @typescript-eslint/no-use-before-define */}
       <Projects
         setProjectToShow={setProjectToShow}
-        listOfProjects={listOfProjects}
+        listOfProjects={listOfWorks}
       />
     </div>
   );
@@ -165,9 +143,9 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
         animate="visible"
         className="font-variation-bold divide-y divide-foreground border-b border-b-foreground md:divide-y-2 md:border-b-2"
       >
-        {[...listOfProjects].slice(0, 1).map((project, index) => (
+        {[...listOfProjects].map((project, index) => (
           <motion.div
-            key={project.name}
+            key={project.id}
             variants={itemVariants}
             onMouseEnter={() => {
               setProjectToShow(index);
@@ -177,7 +155,7 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
             }}
           >
             <Link
-              href={`/work/${project.name}`}
+              href={`/work/${project.key}`}
               className="flex items-center gap-x-2 text-xl md:text-2xl"
             >
               <motion.div
@@ -195,10 +173,10 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
                 </div>
                 <div className="flex w-full justify-between">
                   <motion.h4 variants={nameVaraints} className="">
-                    {project.name}
+                    {project.key}
                   </motion.h4>
-                  <h4 className="font-variation flex items-center justify-center text-base">
-                    {project.description}
+                  <h4 className="font-variation flex items-center justify-center truncate text-base">
+                    {project.category}
                   </h4>
                 </div>
               </motion.div>

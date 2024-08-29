@@ -23,6 +23,10 @@ const config: Config = {
         old: ['var(--font-old-standard)'],
         bebas_neue: ['var(--font-bebas-neue)'],
         feixen: ['var(--font-feixen)'],
+        feixenBold: ['var(--font-feixen-bold)'],
+      },
+      aspectRatio: {
+        custom: 'auto 2000/1413',
       },
     },
   },

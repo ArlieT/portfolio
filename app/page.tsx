@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-full flex-1 items-center justify-center border border-indigo-500">
+    <div className="flex h-full flex-1 items-center justify-center">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -44,19 +44,20 @@ export default function Home() {
         <motion.div
           custom={4}
           variants={itemVariants}
-          className="text-center font-feixen text-base font-bold lg:text-xl"
+          className="text-center font-feixenBold text-base md:text-lg lg:text-xl"
         >
           <p>I&apos;m a front-end web developer</p>
+          <p>specialized in front-end development</p>
         </motion.div>
 
-        <motion.div className="font-variation mt-8 flex items-center justify-center gap-6 text-base lg:text-xl">
+        <motion.div className="font-variation mt-8 flex items-center justify-center gap-6 text-base md:text-lg lg:text-xl">
           <motion.div
             custom={3}
             variants={itemVariants}
             className="group relative flex items-center gap-2 overflow-x-hidden pb-1"
           >
             <p>→</p>
-            <Link href="/work">see my projects</Link>
+            <Link href="/work">see my works</Link>
             <Underline className="absolute bottom-0.5" />
           </motion.div>
           <motion.div
