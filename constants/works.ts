@@ -19,7 +19,7 @@ export const works = [
     role: 'Frontend Developer',
     year: '2023',
     description: `Developed a dynamic online Baccarat game called "Fruit" featuring real-time gameplay and secure betting options. The project showcases my ability to create engaging user experiences and implement complex gaming logic`,
-    mainImage: '/images/projects/fruits/fruit-auth.png',
+    mainImage: '/images/projects/fruits/fruits-main.png',
     images: [
       '/images/projects/fruits/chats-desktop.png',
       '/images/projects/fruits/fruits-desktop.png',

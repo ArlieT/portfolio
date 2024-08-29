@@ -121,7 +121,7 @@ const page = ({ params }: { params: { workId: string } }) => {
             <motion.div
               key={work?.key}
               variants={arrowVariants}
-              className="relative border"
+              className="relative"
             >
               →
             </motion.div>
