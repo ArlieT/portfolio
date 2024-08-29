@@ -47,7 +47,7 @@ function Works() {
               variants={imageVariants}
               initial="hidden"
               animate={projecToShow === index ? 'visible' : 'hidden'}
-              className="absolute h-full w-full border"
+              className="absolute h-full w-full"
             >
               <motion.div
                 className="relative h-full w-full"
