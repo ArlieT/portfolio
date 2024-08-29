@@ -155,7 +155,7 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
             }}
           >
             <Link
-              href={`/work/${project.key}`}
+              href={`/works/${project.key}`}
               className="flex items-center gap-x-2 text-xl md:text-2xl"
             >
               <motion.div
