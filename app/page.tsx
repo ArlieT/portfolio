@@ -57,7 +57,7 @@ export default function Home() {
             className="group relative flex items-center gap-2 overflow-x-hidden pb-1"
           >
             <p>→</p>
-            <Link href="/work">see my works</Link>
+            <Link href="/works">see my works</Link>
             <Underline className="absolute bottom-0.5" />
           </motion.div>
           <motion.div
@@ -119,5 +119,3 @@ function Tabs({ content, icon, ...props }: Props) {
     </div>
   );
 }
-
-console.log(Tabs);

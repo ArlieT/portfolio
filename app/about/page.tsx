@@ -3,8 +3,8 @@ import Image from 'next/image';
 const page = () => (
   <div>
     <div>
-      <h1 className="font-feixenBold text-center text-base md:text-lg lg:text-xl">
-        Hello I'm Arlie a web developer
+      <h1 className="text-center font-feixenBold text-base md:text-lg lg:text-xl">
+        Hello I&apos;m Arlie a web developer
       </h1>
       <br />
       aside from making websites/apps I also like taking pictures.

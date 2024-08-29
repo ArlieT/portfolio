@@ -1,4 +1,5 @@
 'use client';
+
 import { works } from '@/constants/works';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -110,7 +111,7 @@ const page = ({ params }: { params: { workId: string } }) => {
         ))}
         <div className="border-b-2 border-foreground" />
         <Link
-          href={`/work/${work?.key}`}
+          href={`/works/${work?.key}`}
           className="relative flex w-full justify-between font-feixenBold text-xl md:text-2xl"
         >
           <motion.div
