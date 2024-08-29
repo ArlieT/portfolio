@@ -8,13 +8,11 @@ import Link from 'next/link';
 const page = ({ params }: { params: { workId: string } }) => {
   const currentWork = works.find((work) => work.key === params.workId);
 
-  const nextWork = works.find((work) => {
-    if (currentWork) {
-      return work.id === currentWork.id + 1;
-    }
-  });
+  const nextWork = works.find(
+    (work) => currentWork && work.id === currentWork.id + 1,
+  );
 
-  //if nextwwork is not found, render the first work
+  // if nextwwork is not found, render the first work
   const work = nextWork || works[0];
 
   const arrowVariants = {
