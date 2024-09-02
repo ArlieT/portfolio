@@ -10,8 +10,8 @@ import {
   feixenBold,
   jetbrains,
   oldStandard,
-} from '../_lib/fonts';
-import './globals.css';
+} from '../../_lib/fonts';
+import '../globals.css';
 
 export const metadata: Metadata = {
   title: 'Arlie',
@@ -19,9 +19,11 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  modal,
   children,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -34,7 +36,10 @@ export default function RootLayout({
             <div className="relative h-dvh min-h-dvh overflow-y-auto pt-[82px] md:pt-[130px]">
               <Header />
               <div className="h-[calc(100dvh-82px)] md:h-[calc(100dvh-130px)]">
-                <Container>{children}</Container>
+                <Container>
+                  {children}
+                  {modal}
+                </Container>
               </div>
             </div>
             <div className="noise" />

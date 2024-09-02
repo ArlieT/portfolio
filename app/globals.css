@@ -56,7 +56,8 @@ body {
 }
 
 .custom-shadow {
-  box-shadow: 0 0 20px rgba(96, 104, 135, 0.25);
+  box-shadow:  0 0 30px rgba(96,104,135,.25)
+
 }
 
 .font-variation-bold {

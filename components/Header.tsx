@@ -58,7 +58,7 @@ function Header() {
 
   return (
     <header className="c/max-h-[128px] fixed top-0 z-[999] max-h-[12%] w-full text-foreground backdrop-blur-[1px]">
-      <div className="C/overflow-hidden flex w-full items-center justify-between p-6 md:p-10">
+      <div className="C/overflow-hidden flex w-full items-center justify-between p-6 md:p-14">
         <Link
           onClick={() => {
             if (isOpen) {

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const page = ({ params }: { params: { workId: string } }) => {
+export default function Page({ params }: { params: { workId: string } }) {
   const currentWork = works.find((work) => work.key === params.workId);
 
   const nextWork = works.find(
@@ -110,12 +110,12 @@ const page = ({ params }: { params: { workId: string } }) => {
         <div className="border-b-2 border-foreground" />
         <Link
           href={`/works/${work?.key}`}
-          className="relative flex w-full justify-between font-feixenBold text-xl md:text-2xl"
+          className="relative flex w-full justify-between font-feixenBold text-base md:text-2xl"
         >
           <motion.div
             whileHover="visible"
             initial="hidden"
-            className="font-variation-bold left-0 flex w-fit"
+            className="font-variation-bold flex w-fit"
             key={work?.key}
           >
             <motion.div
@@ -129,13 +129,14 @@ const page = ({ params }: { params: { workId: string } }) => {
               next project
             </motion.p>
           </motion.div>
-          <div className="font-feixen">
-            <p className="font-variation-bold">{work?.name}</p>
-            <p className="text-base md:text-lg">{work?.category}</p>
+          <div className="text-end font-feixen">
+            <p className="font-variation-bold truncate text-wrap">
+              {work?.name}
+            </p>
+            <p className="">{work?.category}</p>
           </div>
         </Link>
       </div>
     </div>
   );
-};
-export default page;
+}

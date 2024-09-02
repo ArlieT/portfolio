@@ -9,6 +9,7 @@ export default function NotFound() {
       <h1 className="text-outline font-feixenBold text-[6rem] md:text-[12rem]">
         404
       </h1>
+
       <Link
         href="/"
         className="group relative flex items-center gap-2 overflow-x-hidden pb-1 text-lg md:text-2xl"
