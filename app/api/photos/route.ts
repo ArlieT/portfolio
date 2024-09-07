@@ -33,12 +33,12 @@ export async function PUT(request: Request) {
     const id = Number(number);
     console.log({ status });
 
-    if (number === null || isNaN(id))
+    if (number === null || Number.isNaN(id)) {
       return Response.json(
         { message: 'No id provided or not a number' },
         { status: 500 },
       );
-
+    }
     const photo = await prisma.photos.update({
       where: { id },
       data: {

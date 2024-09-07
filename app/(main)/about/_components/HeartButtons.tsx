@@ -1,10 +1,10 @@
 'use client';
+
 import { updateLikeStatus } from '@/api-calls/photos';
 import React, { useEffect, useState } from 'react';
-import { FaRegHeart } from 'react-icons/fa';
-import { FaHeart } from 'react-icons/fa';
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
 
-const HeartButtons = ({ id, count }: { id: number; count: number }) => {
+function HeartButtons({ id, count }: { id: number; count: number }) {
   const [isClicked, setIsClicked] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -45,6 +45,7 @@ const HeartButtons = ({ id, count }: { id: number; count: number }) => {
     <div className="absolute bottom-0 right-4 z-0 flex translate-x-[115%] items-center justify-center opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-90 lg:bottom-2">
       <button
         onClick={handleHeart}
+        type="button"
         className="overlay-invert group inset-0 m-auto flex items-center justify-center gap-x-2 p-2"
       >
         <span className="text-lg font-bold">{count} </span>
@@ -57,6 +58,6 @@ const HeartButtons = ({ id, count }: { id: number; count: number }) => {
       </button>
     </div>
   );
-};
+}
 
 export default HeartButtons;

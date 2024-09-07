@@ -3,9 +3,10 @@ import Underline from '@/components/Helpers';
 import Link from 'next/link';
 import { Fragment } from 'react';
 import { cn } from '@/_util/helpers';
-import HeartButtons from './_components/HeartButtons';
 import { getPhotos } from '@/api-calls/photos';
-import { RiH1 } from 'react-icons/ri';
+import HeartButtons from './_components/HeartButtons';
+
+export const runtime = 'edge';
 
 const page = async () => {
   const { data: photos, error } = await getPhotos();
@@ -62,29 +63,27 @@ const page = async () => {
         <div className="mx-auto flex h-full grid-cols-3 grid-rows-3 flex-col gap-5 overflow-hidden lg:grid">
           {error && <h1>Oops! </h1>}
           {photos.length ? (
-            photos?.map((file, index) => {
-              return (
-                <Fragment key={file.photosUrl}>
-                  <div
-                    key={file.photosUrl}
-                    className={cn(
-                      `group relative z-10 h-full min-h-[200px] w-full object-cover object-center md:min-h-0 lg:aspect-square lg:min-h-0`,
-                      testGrid[index + 1],
-                    )}
-                  >
-                    <Image
-                      src={`/images/photography/${file.photosUrl}`}
-                      alt={`/images/photography/${file.photosUrl}`}
-                      fill
-                      className="mt-4 block h-full w-full object-cover object-center"
-                    />
-                    <div className="absolute h-full w-full overflow-hidden">
-                      <HeartButtons id={file.id} count={Number(file.count)} />
-                    </div>
+            photos?.map((file, index) => (
+              <Fragment key={file.photosUrl}>
+                <div
+                  key={file.photosUrl}
+                  className={cn(
+                    'group relative z-10 h-full min-h-[200px] w-full object-cover object-center md:min-h-0 lg:aspect-square lg:min-h-0',
+                    testGrid[index + 1],
+                  )}
+                >
+                  <Image
+                    src={`/images/photography/${file.photosUrl}`}
+                    alt={`/images/photography/${file.photosUrl}`}
+                    fill
+                    className="mt-4 block h-full w-full object-cover object-center"
+                  />
+                  <div className="absolute h-full w-full overflow-hidden">
+                    <HeartButtons id={file.id} count={Number(file.count)} />
                   </div>
-                </Fragment>
-              );
-            })
+                </div>
+              </Fragment>
+            ))
           ) : (
             <h1>no photos</h1>
           )}
