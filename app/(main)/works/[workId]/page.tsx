@@ -108,34 +108,34 @@ export default function Page({ params }: { params: { workId: string } }) {
           </div>
         ))}
         <div className="border-b-2 border-foreground" />
-        <Link
-          href={`/works/${work?.key}`}
-          className="relative flex w-full justify-between font-feixenBold text-base md:text-2xl"
-        >
-          <motion.div
-            whileHover="visible"
-            initial="hidden"
-            className="font-variation-bold flex w-fit"
-            key={work?.key}
-          >
+        <div className="relative flex w-full justify-between font-feixenBold text-base md:text-2xl">
+          <Link href={`/works/${work?.key}`}>
             <motion.div
+              whileHover="visible"
+              whileTap="visible"
+              initial="hidden"
+              className="font-variation-bold flex w-fit"
               key={work?.key}
-              variants={arrowVariants}
-              className="relative"
             >
-              →
+              <motion.div
+                key={work?.key}
+                variants={arrowVariants}
+                className="relative"
+              >
+                →
+              </motion.div>
+              <motion.p variants={textVariant} className="whitespace-nowrap">
+                next project
+              </motion.p>
             </motion.div>
-            <motion.p variants={textVariant} className="whitespace-nowrap">
-              next project
-            </motion.p>
-          </motion.div>
+          </Link>
           <div className="text-end font-feixen">
             <p className="font-variation-bold truncate text-wrap">
               {work?.name}
             </p>
             <p className="">{work?.category}</p>
           </div>
-        </Link>
+        </div>
       </div>
     </div>
   );

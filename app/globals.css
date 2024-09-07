@@ -88,6 +88,14 @@ body {
   mix-blend-mode: difference;
 }
 
+.overlay-invert-accent {
+  color: var(white);
+  mix-blend-mode: multiply;
+}
+
+
+
+
 .name,
 .nav-menu {
   position: relative;
@@ -109,6 +117,17 @@ body {
 .flip-horizontal {
   --transform-scale-x: -1;
 }
+
+
+.hide {
+  display: none;
+}
+
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}
+
 
 .noise {
   position: fixed;
@@ -159,3 +178,7 @@ body {
     transform: translate(-15%, 0);
   }
 }
+
+
+
+

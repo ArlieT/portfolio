@@ -68,7 +68,7 @@ function Header() {
           href="/"
           className="flex w-fit items-center justify-center gap-2 text-xl"
         >
-          <div className="size-8 rounded-full bg-foreground" />
+          <div className="overlay-invert-accent size-8 rounded-full bg-foreground" />
           <motion.div
             variants={nameVariants}
             initial="hidden"
@@ -76,7 +76,7 @@ function Header() {
             className="hidden md:flex"
           >
             <div className="prevent-uppercase group overflow-x-hidden font-feixen transition-all">
-              <h1 className="name text-2xl font-bold">
+              <h1 className="name overlay-invert-accent text-2xl font-bold">
                 Arlie Torres / <span className="text-sm">Web Developer</span>
               </h1>
               <Underline />
@@ -84,7 +84,7 @@ function Header() {
           </motion.div>
         </Link>
 
-        <div className="flex items-center justify-center gap-x-5 text-foreground">
+        <div className="overlay-invert-accent flex items-center justify-center gap-x-5 text-foreground">
           <ThemeToggle />
           <motion.button
             onClick={toggleSidebar}

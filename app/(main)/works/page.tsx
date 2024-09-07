@@ -160,6 +160,7 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
             >
               <motion.div
                 whileHover="visible"
+                whileTap="visible"
                 initial="hidden"
                 className="relative flex w-full items-center justify-center py-4 md:py-6"
               >

@@ -90,7 +90,7 @@ function NavigationMenu() {
                 >
                   <span className="mr-2">↗</span>
                   <span>Instagram</span>
-                  <Underline />
+                  <Underline className="bottom-0.5" />
                 </Link>
                 <Link
                   target="_blank"
@@ -99,7 +99,7 @@ function NavigationMenu() {
                 >
                   <span className="mr-2">↗</span>
                   <span>Github</span>
-                  <Underline />
+                  <Underline className="bottom-0.5" />
                 </Link>
               </motion.div>
             </div>

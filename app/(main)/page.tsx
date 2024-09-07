@@ -44,17 +44,21 @@ export default function Home() {
         <motion.div
           custom={4}
           variants={itemVariants}
-          className="text-center font-feixenBold text-base md:text-lg lg:text-xl"
+          className="text-balance text-center font-feixenBold text-base md:text-lg lg:text-xl"
         >
-          <p>I&apos;m a front-end web developer</p>
-          <p>specialized in front-end development</p>
+          <p>I&apos;m a web developer</p>
+          <p className="">
+            passionate about building websites/applications, focusing on
+            front-end
+          </p>
+          <p>development.</p>
         </motion.div>
 
         <motion.div className="font-variation mt-8 flex items-center justify-center gap-6 text-base md:text-lg lg:text-xl">
           <motion.div
             custom={3}
             variants={itemVariants}
-            className="group relative flex items-center gap-2 overflow-x-hidden pb-1"
+            className="group flex items-center gap-2 overflow-x-hidden pb-1"
           >
             <p>→</p>
             <Link href="/works">see my works</Link>
