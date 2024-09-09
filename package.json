@@ -16,6 +16,7 @@
     "@vercel/postgres": "^0.10.0",
     "babel-plugin-react-compiler": "^0.0.0-experimental-938cd9a-20240601",
     "clsx": "^2.1.1",
+    "colorthief": "^2.4.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "framer-motion": "12.0.0-alpha.0",
     "next": "^15.0.0-rc.0",

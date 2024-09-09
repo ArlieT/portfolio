@@ -4,6 +4,7 @@ import { cn } from '@/_util/helpers';
 import AboutMe from '@/components/AboutMe';
 import Underline from '@/components/Helpers';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { tv } from 'tailwind-variants';
 
@@ -33,14 +34,27 @@ export default function Home() {
         animate="visible"
         className="relative -top-20 text-lg md:text-2xl md:text-[2.5rem]"
       >
-        <motion.p
+        <motion.div
           custom={5}
           variants={itemVariants}
-          className="font-variation-bold mb-2 text-balance text-center uppercase tracking-wider md:text-2xl lg:text-[2.5rem] dark:text-accent-light"
+          className="font-variation-bold mx-auto mb-2 flex w-full items-center justify-center gap-x-2 text-balance text-center uppercase tracking-wider md:text-2xl lg:text-[2.5rem] dark:text-accent-light"
         >
           <span className="text-outline">Hi, I&apos;m </span>
-          Arlie Torres
-        </motion.p>
+          <div className="relative w-fit overflow-hidden outline-red-500">
+            Arlie Torres
+            <div
+              className="absolute bottom-0 mx-auto w-fit"
+              style={{
+                backgroundImage: "url('/svg/wave-light.svg')",
+                opacity: 0.5,
+                width: ' 100%',
+                height: '50%',
+                backgroundPositionX: 0,
+                backgroundPositionY: 0,
+              }}
+            ></div>
+          </div>
+        </motion.div>
         <motion.div
           custom={4}
           variants={itemVariants}
@@ -77,7 +91,7 @@ export default function Home() {
       </motion.div>
 
       <div className="h-[40vh]" />
-      <AboutMe />
+      {/* <AboutMe /> */}
     </div>
   );
 }

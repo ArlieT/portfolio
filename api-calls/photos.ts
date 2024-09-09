@@ -8,7 +8,7 @@ export const getPhotos = async (): Promise<{
 }> => {
   const baseURL =
     process.env.NODE_ENV === 'production'
-      ? process.env.NEXT_PUBLIC_BASE_URL
+      ? process.env.VERCEL_PROJECT_PRODUCTION_URL
       : 'http://localhost:3000';
 
   try {
@@ -35,7 +35,7 @@ export const updateLikeStatus = async (
 }> => {
   const baseURL =
     process.env.NODE_ENV === 'production'
-      ? process.env.NEXT_PUBLIC_BASE_URL
+      ? process.env.VERCEL_PROJECT_PRODUCTION_URL
       : 'http://localhost:3000';
   try {
     const response = await fetch(baseURL + '/api/photos', {

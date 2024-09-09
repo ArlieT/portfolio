@@ -41,12 +41,16 @@ export async function PUT(request: Request) {
         { status: 400 },
       );
     }
-    const photo = await prisma.photos.update({
+    const photo = await prisma.photos.findUnique({
       where: { id },
-      data: {
-        count: status === 'increment' ? { increment: 1 } : { decrement: 1 },
-      },
     });
+    if (photo && photo.count >= 0)
+      await prisma.photos.update({
+        where: { id },
+        data: {
+          count: status === 'increment' ? { increment: 1 } : { decrement: 1 },
+        },
+      });
 
     return Response.json({ data: photo, message: 'Photo updated' });
   } catch (error) {
