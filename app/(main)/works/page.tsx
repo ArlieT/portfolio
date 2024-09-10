@@ -17,7 +17,6 @@ function Works() {
     id: work.id,
     category: work.category,
   }));
-  console.log({ listOfWorks });
 
   const imageVariants = {
     hidden: {

@@ -7,6 +7,7 @@ export const revalidate = 3600;
 
 const page = async () => {
   const { data: photos, error } = await getPhotos();
+  console.log(process.env.VERCEL_PROJECT_PRODUCTION_URL);
 
   return (
     <div className="relative flex flex-col gap-x-2 p-4 pb-8 will-change-scroll md:p-8 lg:h-full lg:flex-row">
