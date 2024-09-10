@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { cn } from '@/_util/helpers';
 import Underline from './Helpers';
 import { useSidebar } from './SidebarProvider';
 import ThemeToggle from './ThemeToggle';
-import { cn } from '@/_util/helpers';
 
 function Header() {
   const { isOpen, toggleSidebar } = useSidebar();
