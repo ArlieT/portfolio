@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { getPhotos } from '@/actions/photos';
 import PhotoGrid from './_components/PhotoGrid';
 
+export const revalidate = 3600;
+
 const page = async () => {
   const { data: photos, error } = await getPhotos();
 
