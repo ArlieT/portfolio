@@ -12,6 +12,8 @@ export const getPhotos = async (): Promise<{
       ? process.env.VERCEL_PROJECT_PRODUCTION_URL
       : 'http://localhost:3000';
 
+  console.log({ baseURL });
+
   try {
     const response = await fetch(`${baseURL}/api/photos`, {
       headers: {
