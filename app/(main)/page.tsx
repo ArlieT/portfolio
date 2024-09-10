@@ -52,7 +52,7 @@ export default function Home() {
                 backgroundPositionX: 0,
                 backgroundPositionY: 0,
               }}
-            ></div>
+            />
           </div>
         </motion.div>
         <motion.div

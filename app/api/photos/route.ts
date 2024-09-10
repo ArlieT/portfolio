@@ -17,7 +17,6 @@ export async function GET() {
       },
     });
 
-    console.log(files);
     return new Response(JSON.stringify({ data: photos }), {
       status: 200,
     });
@@ -44,13 +43,26 @@ export async function PUT(request: Request) {
     const photo = await prisma.photos.findUnique({
       where: { id },
     });
-    if (photo && photo.count >= 0)
+
+    if (!photo) {
+      return Response.json({ message: 'Photo not found' }, { status: 404 });
+    }
+
+    if (status === 'increment') {
       await prisma.photos.update({
         where: { id },
         data: {
-          count: status === 'increment' ? { increment: 1 } : { decrement: 1 },
+          count: photo.count + 1,
         },
       });
+    } else {
+      await prisma.photos.update({
+        where: { id },
+        data: {
+          count: photo.count - 1,
+        },
+      });
+    }
 
     return Response.json({ data: photo, message: 'Photo updated' });
   } catch (error) {

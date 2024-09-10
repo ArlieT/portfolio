@@ -1,6 +1,6 @@
 import Underline from '@/components/Helpers';
 import Link from 'next/link';
-import { getPhotos } from '@/api-calls/photos';
+import { getPhotos } from '@/actions/photos';
 import PhotoGrid from './_components/PhotoGrid';
 
 const page = async () => {
@@ -10,12 +10,12 @@ const page = async () => {
     <div className="relative flex flex-col gap-x-2 p-4 pb-8 will-change-scroll md:p-8 lg:h-full lg:flex-row">
       <div className="bg-foreground/30 c/lg:h-[calc(100vh-200px)] w-ful left-0 top-0 mx-auto p-[15px] text-base transition-all md:w-[80%] md:text-lg lg:sticky lg:min-w-0 lg:max-w-[20%] lg:text-xl">
         <div className="flex w-auto flex-col items-start text-balance text-center font-feixenBold text-lg md:text-xl">
-          <div className="flex w-fit gap-x-2">
+          <div className="flex w-fit gap-x-2 whitespace-nowrap">
             Hey, I&apos;m
             <div className="relative mx-auto w-fit overflow-hidden">
               <h1>Arlie Torres</h1>
               <div
-                className="absolute bottom-0 mx-auto w-fit"
+                className="object-fit absolute bottom-0 mx-auto w-fit"
                 style={{
                   backgroundImage: "url('/svg/wave-light.svg')",
                   opacity: 0.5,
@@ -24,14 +24,14 @@ const page = async () => {
                   backgroundPositionX: 0,
                   backgroundPositionY: 0,
                 }}
-              ></div>
+              />
             </div>
           </div>
           developer from Philippines
         </div>
         <br />
 
-        <div className="relative h-full w-full">
+        <div className="relative h-fit w-full">
           <p className="c/font-variation leading-relaxed tracking-wide md:text-sm lg:text-lg [&>span]:[display:block]">
             <span className="font-bold opacity-55">About Me</span>
             <span>Born in 2000</span>
@@ -42,7 +42,7 @@ const page = async () => {
           </p>
         </div>
         <br />
-        <p className="w-full whitespace-break-spaces text-wrap text-left">
+        <p className="eading-relaxed w-full whitespace-break-spaces text-wrap text-left tracking-wide md:text-sm lg:text-lg">
           aside from making websites/apps I also like taking pictures.
         </p>
         <div className="mt-4 flex flex-col items-start justify-center gap-x-5">
@@ -72,7 +72,7 @@ const page = async () => {
       </div>
 
       <div className="c/overflow-hidden mx-auto h-full w-full md:w-[80%]">
-        <PhotoGrid photos={photos} error={error} />
+        <PhotoGrid photos={photos} error={error || ''} />
       </div>
     </div>
   );
