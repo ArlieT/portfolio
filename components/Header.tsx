@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Underline from './Helpers';
 import { useSidebar } from './SidebarProvider';
 import ThemeToggle from './ThemeToggle';
+import { cn } from '@/_util/helpers';
 
 function Header() {
   const { isOpen, toggleSidebar } = useSidebar();
@@ -66,17 +67,17 @@ function Header() {
             }
           }}
           href="/"
-          className="flex w-fit items-center justify-center gap-2 text-xl"
+          className="flex w-fit flex-col justify-center gap-2 text-xl md:flex-row"
         >
           <div className="overlay-invert-accent size-8 rounded-full bg-foreground" />
           <motion.div
             variants={nameVariants}
             initial="hidden"
             animate={isOpen ? 'visible' : 'hidden'}
-            className="hidden md:flex"
+            className={cn('', isOpen ? 'visible' : 'hidden')}
           >
             <div className="prevent-uppercase group overflow-x-hidden font-feixen transition-all">
-              <h1 className="name overlay-invert-accent text-2xl font-bold">
+              <h1 className="name overlay-invert-accent text-sm font-bold md:text-2xl">
                 Arlie Torres / <span className="text-sm">Web Developer</span>
               </h1>
               <Underline />
