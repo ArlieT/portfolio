@@ -9,7 +9,7 @@ export const getPhotos = async (): Promise<{
 }> => {
   const baseURL =
     process.env.NODE_ENV === 'production'
-      ? process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
       : 'http://localhost:3000';
 
   console.log({ baseURL });
@@ -47,7 +47,7 @@ export type PhotosFormData = {
 export const updateLikeStatus = async (prev: PhotosFormData) => {
   const baseURL =
     process.env.NODE_ENV === 'production'
-      ? process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
       : 'http://localhost:3000';
   try {
     const response = await fetch(baseURL + '/api/photos', {
