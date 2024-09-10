@@ -1,5 +1,3 @@
-'use client';
-
 import { cn } from '@/_util/helpers';
 import { Photos } from '@prisma/client';
 import Image from 'next/image';
@@ -24,7 +22,7 @@ function PhotoGrid({ photos, error }: { photos: Photos[]; error: string }) {
       )}
     >
       {error && <h1>Oops! Something went wrong.</h1>}
-      {photos.length ? (
+      {photos?.length ? (
         photos?.map((file, index) => (
           <Fragment key={file.photosUrl}>
             <div

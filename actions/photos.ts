@@ -8,10 +8,8 @@ export const getPhotos = async (): Promise<{
   error: string | null;
 }> => {
   const baseURL =
-    process.env.NODE_ENV === 'production'
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : 'http://localhost:3000';
-
+    process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ||
+    'http://localhost:3000';
   console.log({ baseURL });
 
   try {
@@ -30,8 +28,9 @@ export const getPhotos = async (): Promise<{
     }
 
     const data = await response.json();
+    console.log({ data });
 
-    return { data, error: null };
+    return { data: data?.data, error: null };
   } catch (error) {
     console.error(`Fetch error: ${error}`);
     return { data: [], error: 'No data available due to an error' };
@@ -46,9 +45,9 @@ export type PhotosFormData = {
 
 export const updateLikeStatus = async (prev: PhotosFormData) => {
   const baseURL =
-    process.env.NODE_ENV === 'production'
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : 'http://localhost:3000';
+    process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ||
+    'http://localhost:3000';
+
   try {
     const response = await fetch(baseURL + '/api/photos', {
       method: 'PUT',

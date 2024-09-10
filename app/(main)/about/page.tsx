@@ -5,9 +5,8 @@ import PhotoGrid from './_components/PhotoGrid';
 
 export const revalidate = 3600;
 
-const page = async () => {
+async function About() {
   const { data: photos, error } = await getPhotos();
-  console.log(process.env.VERCEL_PROJECT_PRODUCTION_URL);
 
   return (
     <div className="relative flex flex-col gap-x-2 p-4 pb-8 will-change-scroll md:p-8 lg:h-full lg:flex-row">
@@ -79,6 +78,6 @@ const page = async () => {
       </div>
     </div>
   );
-};
+}
 
-export default page;
+export default About;
