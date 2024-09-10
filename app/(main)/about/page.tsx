@@ -29,7 +29,7 @@ async function About() {
               />
             </div>
           </div>
-          developer from Philippines
+          Web developer from Philippines
         </div>
         <br />
 
