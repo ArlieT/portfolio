@@ -36,7 +36,7 @@ function Works() {
     },
   };
   return (
-    <div className="c/md:p-8 relative -bottom-4 -left-10 flex h-full gap-x-4 p-4 pt-[140px]">
+    <div className="c/md:p-8 relative md:-bottom-4 md:-left-10 flex h-full gap-x-4 p-4 pt-[140px]">
       <div className="relative hidden h-full min-h-max w-[60%] overflow-hidden rounded-tr-3xl p-2 md:block md:pr-12">
         {/* images */}
         <div className="c/left-3 absolute h-full w-[calc(100%-24px)]">
