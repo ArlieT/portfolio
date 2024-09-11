@@ -102,7 +102,7 @@ body {
     'wdth' 125;
 }
 
-.nav-menu button span:hover {
+.nav-menu div > a#link > span:hover {
   font-variation-settings:
     'wght' 800,
     'wdth' 100;

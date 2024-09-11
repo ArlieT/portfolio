@@ -6,8 +6,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Page({ params }: { params: { workId: string } }) {
-  const currentWork = works.find((work) => work.key === params.workId);
+  // TODO color pallet base on work photo
 
+  const currentWork = works.find((work) => work.key === params.workId);
   const nextWork = works.find(
     (work) => currentWork && work.id === currentWork.id + 1,
   );

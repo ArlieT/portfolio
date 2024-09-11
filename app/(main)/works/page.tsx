@@ -36,10 +36,10 @@ function Works() {
     },
   };
   return (
-    <div className="flex h-full gap-x-4 p-4 pt-[140px] md:p-8">
-      <div className="relative hidden h-full min-h-max w-1/2 overflow-hidden rounded-tr-3xl p-2 md:block md:pr-12">
+    <div className="c/md:p-8 relative -bottom-4 -left-10 flex h-full gap-x-4 p-4 pt-[140px]">
+      <div className="relative hidden h-full min-h-max w-[60%] overflow-hidden rounded-tr-3xl p-2 md:block md:pr-12">
         {/* images */}
-        <div className="absolute left-3 h-full w-[calc(100%-24px)]">
+        <div className="c/left-3 absolute h-full w-[calc(100%-24px)]">
           {listOfWorks.map((project, index) => (
             <motion.div
               key={project.name}
@@ -140,7 +140,7 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="font-variation-bold divide-y divide-foreground border-b border-b-foreground md:divide-y-2 md:border-b-2"
+        className="font-variation-bold divide-y divide-foreground border-b border-b-foreground py-2 md:divide-y-2 md:border-b-2"
       >
         {[...listOfProjects].map((project, index) => (
           <motion.div

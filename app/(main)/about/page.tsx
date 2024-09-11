@@ -47,15 +47,15 @@ async function About() {
         <p className="eading-relaxed w-full whitespace-break-spaces text-wrap text-left tracking-wide md:text-sm lg:text-lg">
           aside from making websites/apps I also like taking pictures.
         </p>
-        <div className="mt-4 flex flex-col items-start justify-center gap-x-5">
+        <div className="mt-4 flex flex-col items-start justify-center">
           <div className="w-fit">
             <Link
               href="/arlie_torres.pdf"
               target="_blank"
               className="font-variation group relative flex w-fit items-center gap-2 gap-x-2 overflow-x-hidden pb-1 text-base md:text-lg"
             >
-              <p>↓ </p>
-              <h1>resume</h1>
+              <p className="w-[14px]">↓ </p>
+              <h1>Resume</h1>
               <Underline className="absolute bottom-0.5" />
             </Link>
           </div>
@@ -65,7 +65,7 @@ async function About() {
               href={process.env.NEXT_PUBLIC_GITHUB_URL || ''}
               className="font-variation group relative flex w-fit items-center gap-2 gap-x-2 overflow-x-hidden pb-1 text-base md:text-lg"
             >
-              <span className="mr-2">↗</span>
+              <span className="w-[14px] lg:mr-0">↗</span>
               <span>Github</span>
               <Underline className="absolute bottom-0.5" />
             </Link>
