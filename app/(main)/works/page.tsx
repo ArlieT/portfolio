@@ -36,8 +36,12 @@ function Works() {
     },
   };
   return (
-    <div className="c/md:p-8 relative -bottom-4 -left-10 flex h-full gap-x-4 p-4 pt-[140px]">
-      <div className="relative hidden h-full min-h-max w-[60%] overflow-hidden rounded-tr-3xl p-2 md:block md:pr-12">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      className="c/md:p-8 relative flex h-full gap-x-4 p-4 pt-[140px] md:-bottom-4 md:-left-10"
+    >
+      <div className="relative hidden h-full min-h-max w-[70%] overflow-hidden rounded-tr-3xl p-2 md:block md:pr-12 lg:w-[60%]">
         {/* images */}
         <div className="c/left-3 absolute h-full w-[calc(100%-24px)]">
           {listOfWorks.map((project, index) => (
@@ -75,7 +79,7 @@ function Works() {
         setProjectToShow={setProjectToShow}
         listOfProjects={listOfWorks}
       />
-    </div>
+    </motion.div>
   );
 }
 
@@ -90,7 +94,6 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
   const arrowVariants = {
     hidden: { x: '-50%', opacity: 0 },
     visible: { x: '0%', opacity: 1 },
-
     exit: { x: '-100%', opacity: 0 },
   };
 
@@ -109,7 +112,7 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 1,
       },
     },
   };
@@ -119,33 +122,42 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
       opacity: 0,
       y: '-100%',
     },
-    visible: {
-      opacity: 1,
+    visible: (index: number) => ({
       y: 0,
+      opacity: 1,
       transition: {
-        duration: 0.3,
+        type: 'spring',
+        duration: 0.5,
+        delay: index * 0.8,
       },
-    },
+    }),
   };
 
   return (
-    <div className="h-full w-full md:w-1/2 md:lg:pr-[240px]">
-      <div className="flex justify-between border-b border-b-foreground py-6 md:border-b-2">
+    <div className="h-full w-full md:w-[60%] md:lg:pr-[240px]">
+      <motion.div
+        variants={itemVariants}
+        className="flex justify-between border-b border-b-foreground py-6 md:border-b-2"
+      >
         <h2 className="font-variation-bold text-3xl md:text-5xl">WORK </h2>
         <h5 className="self-end text-xl md:text-2xl">
           {listOfProjects.length}
         </h5>
-      </div>
+      </motion.div>
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        // variants={containerVariants}
+        // initial="hidden"
+        // animate="visible"
         className="font-variation-bold divide-y divide-foreground border-b border-b-foreground py-2 md:divide-y-2 md:border-b-2"
       >
         {[...listOfProjects].map((project, index) => (
           <motion.div
             key={project.id}
             variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            custom={index}
             onMouseEnter={() => {
               setProjectToShow(index);
             }}
@@ -172,7 +184,10 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
                   </motion.div>
                 </div>
                 <div className="flex w-full justify-between">
-                  <motion.h4 variants={nameVaraints} className="">
+                  <motion.h4
+                    variants={nameVaraints}
+                    className="whitespace-nowrap"
+                  >
                     {project.key}
                   </motion.h4>
                   <h4 className="font-variation flex items-center justify-center truncate text-base">

@@ -8,13 +8,12 @@ import { useSidebar } from './SidebarProvider';
 
 function Container({ children }: { children: React.ReactNode }) {
   const { isOpen } = useSidebar();
+
   const variants = {
     hidden: {
       opacity: 0,
       y: '-100%',
       transition: {
-        when: 'beforeChildren',
-        staggerChildren: 0.1,
         duration: 0.8,
       },
     },
@@ -22,7 +21,6 @@ function Container({ children }: { children: React.ReactNode }) {
       opacity: 1,
       y: 0,
       transition: {
-        staggerChildren: 0.1,
         duration: 0.3,
         delay: 0.5,
       },
@@ -31,29 +29,34 @@ function Container({ children }: { children: React.ReactNode }) {
       opacity: 0,
       y: -200,
       transition: {
-        duration: 0,
+        duration: 0.1,
         delay: 0,
       },
     },
   };
 
   const pathname = usePathname();
+  console.log(pathname);
 
   return (
     <AnimatePresence mode="wait">
       {!isOpen && (
-        <motion.main
-          key={pathname}
-          initial="hidden"
-          animate="enter"
-          exit="exit"
-          variants={variants}
+        <main
           className={cn('h-full w-full p-4 md:p-8', {
-            'p-0 md:p-0': pathname.includes('/work'),
+            'p-0 md:p-0': pathname.includes('/works'),
           })}
         >
-          {children}
-        </motion.main>
+          <motion.section
+            key={pathname}
+            initial="hidden"
+            animate="enter"
+            exit="exit"
+            variants={variants}
+            className="h-full w-full"
+          >
+            {children}
+          </motion.section>
+        </main>
       )}
     </AnimatePresence>
   );

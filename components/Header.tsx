@@ -140,6 +140,8 @@ function Header() {
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
             animate={getAnimationState(isOpen, isHovered)}
+            onTapStart={() => setIsHovered(true)}
+            onTapCancel={() => setIsHovered(false)}
             variants={{
               hover: {
                 rotate: 45,

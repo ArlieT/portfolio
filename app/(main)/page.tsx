@@ -1,10 +1,8 @@
 'use client';
 
 import { cn } from '@/_util/helpers';
-import AboutMe from '@/components/AboutMe';
 import Underline from '@/components/Helpers';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { tv } from 'tailwind-variants';
 
