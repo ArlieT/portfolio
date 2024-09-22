@@ -17,7 +17,18 @@ export const metadata: Metadata = {
   title: 'Arlie',
   description: "Arlie's portfolio and blog",
   openGraph: {
-    images: ['/images/logo_no_bglogo.png'],
+    title: 'Arlie',
+    description: "Arlie's portfolio and blog",
+    url: 'https://torres-arlie.vercel.app/',
+    type: 'website', // Type of content
+    images: [
+      {
+        url: '/images/logo_no_bglogo.png', // Specify the URL of your image
+        width: 800, // Optional, image width
+        height: 600, // Optional, image height
+        alt: 'Arlie logo', // Alternative text for the image
+      },
+    ],
   },
 };
 
