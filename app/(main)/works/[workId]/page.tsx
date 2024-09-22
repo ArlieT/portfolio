@@ -1,11 +1,35 @@
-'use client';
-
 import { works } from '@/constants/works';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
+import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import NextProject from './_components/next-project';
 
-export default function Page({ params }: { params: { workId: string } }) {
+type Props = {
+  params: { workId: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  // read route params
+  const id = params.workId;
+
+  const currentWork = works.find((work) => work.key === id);
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: currentWork?.name,
+    openGraph: {
+      images: [currentWork?.mainImage!, ...previousImages],
+    },
+  };
+}
+
+export default function Page({ params }: Props) {
   // TODO color pallet base on work photo
 
   const currentWork = works.find((work) => work.key === params.workId);
@@ -13,33 +37,23 @@ export default function Page({ params }: { params: { workId: string } }) {
     (work) => currentWork && work.id === currentWork.id + 1,
   );
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Project',
+    name: currentWork?.name,
+    image: currentWork?.mainImage,
+    description: currentWork?.description,
+  };
+
   // if nextwwork is not found, render the first work
   const work = nextWork || works[0];
 
-  const arrowVariants = {
-    hidden: { x: '-50%', width: 0, opacity: 0 },
-    visible: { x: '0%', width: '100%', opacity: 1 },
-    exit: { x: '-100%', opacity: 0 },
-    transition: {
-      type: 'spring',
-      bounce: 0.5,
-      duration: 0.5,
-    },
-  };
-
-  const textVariant = {
-    hidden: { x: '0%' },
-    visible: { x: '5%' },
-    exit: { x: '-100%', opacity: 0 },
-    transition: {
-      type: 'spring',
-      bounce: 0.5,
-      duration: 0.5,
-    },
-  };
-
   return (
     <div className="flex flex-col items-center gap-4 md:gap-6 md:p-0 md:pb-6 md:pt-[500px] lg:pt-[450px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="z-[9999999] mx-auto w-[90%] md:absolute md:-top-[400px] md:w-full lg:-top-96 lg:w-[80%]">
         <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-3xl md:h-[810px] md:rounded-[48px]">
           <Image
@@ -93,50 +107,24 @@ export default function Page({ params }: { params: { workId: string } }) {
           </div>
         </div>
 
-        {currentWork?.images.map((image, index) => (
-          <div
-            key={image}
-            className="custom-shadow relative mx-auto h-full w-full overflow-hidden"
-          >
-            <Image
-              src={image || ''}
-              alt={image || ''}
-              // fill
-              width={2000}
-              height={1413}
-              className="aspect-custom h-full w-full object-cover"
-            />
-          </div>
-        ))}
-        <div className="border-b-2 border-foreground" />
-        <div className="relative flex w-full justify-between font-feixenBold text-base md:text-2xl">
-          <Link href={`/works/${work?.key}`}>
-            <motion.div
-              whileHover="visible"
-              whileTap="visible"
-              initial="hidden"
-              className="font-variation-bold flex w-fit"
-              key={work?.key}
+        {currentWork?.images &&
+          currentWork?.images.map((image, index) => (
+            <div
+              key={image}
+              className="custom-shadow relative mx-auto h-full w-full overflow-hidden"
             >
-              <motion.div
-                key={work?.key}
-                variants={arrowVariants}
-                className="relative"
-              >
-                →
-              </motion.div>
-              <motion.p variants={textVariant} className="whitespace-nowrap">
-                next project
-              </motion.p>
-            </motion.div>
-          </Link>
-          <div className="text-end font-feixen">
-            <p className="font-variation-bold truncate text-wrap">
-              {work?.name}
-            </p>
-            <p className="">{work?.category}</p>
-          </div>
-        </div>
+              <Image
+                src={image || ''}
+                alt={image || ''}
+                // fill
+                width={2000}
+                height={1413}
+                className="aspect-custom h-full w-full object-cover"
+              />
+            </div>
+          ))}
+        <div className="border-b-2 border-foreground" />
+        <NextProject work={work} />
       </div>
     </div>
   );
