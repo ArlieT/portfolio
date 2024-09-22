@@ -1,8 +1,8 @@
 import Underline from '@/components/Helpers';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import { getPhotos } from '@/actions/photos';
 import PhotoGrid from './_components/PhotoGrid';
-import { Metadata } from 'next';
 
 export const revalidate = 3600;
 
