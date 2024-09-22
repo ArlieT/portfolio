@@ -1,4 +1,4 @@
-type Work = {
+export type Work = {
   id: number;
   key: string;
   name: string;
@@ -7,10 +7,10 @@ type Work = {
   year: string;
   description: string;
   mainImage: string;
-  images: string[];
+  images?: string[];
 };
 
-export const works = [
+export const works: Work[] = [
   {
     id: 1,
     key: 'fruits',
@@ -51,6 +51,6 @@ export const works = [
     description:
       'Designed and developed a responsive e-commerce website for a small business called Solely Shoes, featuring an intuitive user interface, seamless navigation, and secure payment integration. The site includes product listings and a streamlined checkout process to enhance the shopping experience.',
     mainImage: '/images/projects/solely-shoes/solely-shoes-main.png',
-    images: [, '/images/projects/solely-shoes/solely-shoes.png'],
+    images: ['/images/projects/solely-shoes/solely-shoes.png'],
   },
 ];
