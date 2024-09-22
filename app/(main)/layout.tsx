@@ -16,6 +16,9 @@ import '../globals.css';
 export const metadata: Metadata = {
   title: 'Arlie',
   description: "Arlie's portfolio and blog",
+  openGraph: {
+    images: ['/images/logo_no_bglogo.png'],
+  },
 };
 
 export default function RootLayout({
