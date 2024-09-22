@@ -73,6 +73,7 @@ function Header() {
     hidden: {
       opacity: 0,
       width: 0,
+      height: 0,
       y: -20,
       transition: {
         duration: 0.3,
@@ -82,6 +83,7 @@ function Header() {
     visible: {
       opacity: 1,
       width: 'auto',
+      height: 'auto',
       y: 0,
       transition: {
         duration: 0.3,
@@ -114,14 +116,23 @@ function Header() {
             }
           }}
           href="/"
-          className="flex w-fit flex-col justify-center gap-2 text-xl md:flex-row"
+          className="flex h-fit w-fit flex-col items-center justify-center gap-2 text-xl md:flex-row"
         >
-          <div className="overlay-invert-accent size-8 rounded-full bg-foreground" />
+          <div className="overlay-invert-accent size-8 h-10 w-10 self-start rounded-full bg-foreground lg:size-12" />
+          {/* <Image
+            src="/images/logo_no_bg.png"
+            alt="logo"
+            width={100}
+            height={100}
+            className="w-14 md:w-20"
+          /> */}
           <motion.div
             variants={nameVariants}
             initial="hidden"
             animate={isOpen ? 'visible' : 'hidden'}
-            // className={cn('', isOpen ? 'visible' : 'hidden')}
+            // className={cn({
+            //   hidden: !isOpen,
+            // })}
           >
             <div className="prevent-uppercase group overflow-x-hidden font-feixen transition-all">
               <h1 className="name overlay-invert-accent text-sm font-bold md:text-2xl">
@@ -132,11 +143,11 @@ function Header() {
           </motion.div>
         </Link>
 
-        <div className="overlay-invert-accent flex items-center justify-center gap-x-5 text-foreground">
+        <div className="overlay-invert-accent flex h-full items-center justify-center gap-x-5 text-foreground">
           <ThemeToggle />
           <motion.button
             onClick={toggleSidebar}
-            className="items-center justify-center transition-all"
+            className="flex items-center justify-center transition-all"
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
             animate={getAnimationState(isOpen, isHovered)}
