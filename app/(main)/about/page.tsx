@@ -2,8 +2,13 @@ import Underline from '@/components/Helpers';
 import Link from 'next/link';
 import { getPhotos } from '@/actions/photos';
 import PhotoGrid from './_components/PhotoGrid';
+import { Metadata } from 'next';
 
 export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  title: 'About me',
+};
 
 async function About() {
   const { data: photos, error } = await getPhotos();
