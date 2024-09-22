@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website', // Type of content
     images: [
       {
-        url: '/images/logo_no_bglogo.png', // Specify the URL of your image
+        url: '/images/logo_no_bg.png', // Specify the URL of your image
         width: 800, // Optional, image width
         height: 600, // Optional, image height
         alt: 'Arlie logo', // Alternative text for the image
