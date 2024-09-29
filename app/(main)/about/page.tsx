@@ -1,9 +1,9 @@
 import Underline from '@/components/Helpers';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { getPhotos } from '@/actions/photos';
 import PhotoGrid from './_components/PhotoGrid';
-import { Suspense } from 'react';
 
 export const revalidate = 3600;
 
