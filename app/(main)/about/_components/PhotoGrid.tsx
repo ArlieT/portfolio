@@ -4,7 +4,7 @@ import { cn } from '@/_util/helpers';
 import { Photos } from '@prisma/client';
 import Image from 'next/image';
 import { Fragment } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Transition, Variants } from 'framer-motion';
 import HeartButtons from './HeartButtons';
 
 function PhotoGrid({ photos, error }: { photos: Photos[]; error: string }) {
@@ -18,20 +18,19 @@ function PhotoGrid({ photos, error }: { photos: Photos[]; error: string }) {
     7: 'col-start-2 col-end-3 row-start-3',
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: {
       opacity: 0,
-      y: '-100%',
     },
     visible: (index: number) => ({
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring',
+        type: '',
         ease: 'linear',
         duration: 0.5,
         delay: index * 0.2,
-      },
+      } as Transition,
     }),
   };
 
