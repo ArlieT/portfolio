@@ -20,13 +20,27 @@ export const metadata: Metadata = {
     title: 'Arlie',
     description: "Arlie's portfolio work showcase",
     url: 'https://torres-arlie.vercel.app/',
+    siteName: 'Arlie Portfolio',
     type: 'website', // Type of content
     images: [
       {
-        url: '/images/preview.png', // Specify the URL of your image
+        url: 'https://torres-arlie.vercel.app/images/preview.png', // Specify the URL of your image
         width: 800, // Optional, image width
         height: 600, // Optional, image height
-        alt: 'Arlie logo', // Alternative text for the image
+        alt: '', // Alternative text for the image
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Arlie Portfolio',
+    description: 'A simple work showcase.',
+    images: [
+      {
+        url: 'https://torres-arlie.vercel.app/images/preview.png', // Specify the URL of your image
+        width: 800, // Optional, image width
+        height: 600, // Optional, image height
+        alt: '', // Alternative text for the image
       },
     ],
   },
