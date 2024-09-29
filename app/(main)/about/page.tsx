@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { getPhotos } from '@/actions/photos';
 import PhotoGrid from './_components/PhotoGrid';
+import { Suspense } from 'react';
 
 export const revalidate = 3600;
 
@@ -14,7 +15,7 @@ async function About() {
   const { data: photos, error } = await getPhotos();
 
   return (
-    <div className="relative flex flex-col gap-x-2 p-4 pb-8 will-change-scroll md:p-8 lg:h-full lg:flex-row">
+    <div className="relative flex h-[calc(100dvh-82px)] flex-col gap-x-2 p-4 pb-8 will-change-scroll md:h-[calc(100dvh-130px)] md:p-8 lg:h-full lg:flex-row">
       <div className="bg-foreground/30 c/lg:h-[calc(100vh-200px)] w-ful left-0 top-0 mx-auto p-[15px] text-base transition-all md:w-[80%] md:text-lg lg:sticky lg:min-w-0 lg:max-w-[20%] lg:text-xl">
         <div className="flex w-auto flex-col items-start text-balance text-center font-feixenBold text-lg md:text-xl">
           <div className="flex w-fit gap-x-2 whitespace-nowrap">
@@ -79,7 +80,9 @@ async function About() {
       </div>
 
       <div className="c/overflow-hidden mx-auto h-full w-full md:w-[80%]">
-        <PhotoGrid photos={photos} error={error || ''} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <PhotoGrid photos={photos} error={error || ''} />
+        </Suspense>
       </div>
     </div>
   );
