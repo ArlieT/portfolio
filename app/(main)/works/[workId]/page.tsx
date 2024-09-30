@@ -98,13 +98,32 @@ export default function Page({ params }: Props) {
                   </td>
                   <td className="flex-1">{currentWork?.year}</td>
                 </tr>
+
+                <tr className="flex gap-x-6">
+                  <td className="font-variation-bold flex-1 text-lg uppercase">
+                    Stack
+                  </td>
+                  <td className="flex-1 whitespace-break-spaces text-sm md:text-base">
+                    [
+                    {currentWork?.technologies?.map((tech, index) => (
+                      <span key={tech}>
+                        {index === 0 && <>&nbsp;</>}{' '}
+                        {/* Add space before the first item */}
+                        {tech}
+                        {index < currentWork?.technologies!.length - 1
+                          ? ',\u00A0'
+                          : '\u00A0'}
+                      </span>
+                    ))}
+                    ]
+                  </td>
+                </tr>
               </tbody>
             </table>
-
-            <div className="w-full font-extrabold">
-              <p>{currentWork?.description}</p>
-            </div>
           </div>
+        </div>
+        <div className="my-4 w-full flex-1 text-center text-sm md:text-lg">
+          <p>{currentWork?.description}</p>
         </div>
 
         {currentWork?.images &&
@@ -123,7 +142,7 @@ export default function Page({ params }: Props) {
               />
             </div>
           ))}
-        <div className="mt-4 border border-b-2 border-foreground" />
+        <div className="border-b-2 border-foreground" />
         <NextProject work={work} />
       </div>
     </div>

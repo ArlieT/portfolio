@@ -8,6 +8,7 @@ export type Work = {
   description: string;
   mainImage: string;
   images?: string[];
+  technologies?: string[];
 };
 
 export const works: Work[] = [
@@ -25,6 +26,16 @@ export const works: Work[] = [
       '/images/projects/fruits/fruits-desktop.png',
       '/images/projects/fruits/fruits-deposit.png',
       '/images/projects/fruits/fruits-withdraw.png',
+    ],
+    technologies: [
+      'NextJs',
+      'TailwindCss',
+      'i18next',
+      'Zustand',
+      'Zod',
+      'Framer Motion',
+      'PostgreSQL',
+      'Socket.io',
     ],
   },
   // {
@@ -52,5 +63,13 @@ export const works: Work[] = [
       'Designed and developed a responsive e-commerce website for a small business called Solely Shoes, featuring an intuitive user interface, seamless navigation, and secure payment integration. The site includes product listings and a streamlined checkout process to enhance the shopping experience.',
     mainImage: '/images/projects/solely-shoes/solely-shoes-main.png',
     images: ['/images/projects/solely-shoes/solely-shoes.png'],
+    technologies: [
+      'NextJs',
+      'TailwindCss',
+      'NextAuth',
+      'Prisma',
+      'Supabase',
+      'Zustand',
+    ],
   },
 ];
