@@ -49,7 +49,7 @@ function NextProject({ work }: { work: Work }) {
           </motion.p>
         </motion.div>
       </Link>
-      <div className="text-end font-feixen text-xs md:text-base">
+      <div className="text-end font-feixen text-xs md:text-xl">
         <p className="font-variation-bold truncate text-wrap">{work?.name}</p>
         <p className="">{work?.category}</p>
       </div>
