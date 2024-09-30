@@ -39,7 +39,7 @@ function Works() {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="c/md:p-8 relative flex h-full gap-x-4 p-4 pt-[140px] md:-bottom-4 md:-left-10"
+      className="c/md:p-8 relative flex h-full gap-x-4 overflow-hidden p-4 pt-[140px] md:-bottom-4 md:-left-10"
     >
       <div className="relative hidden h-full min-h-max w-[70%] overflow-hidden rounded-tr-3xl p-2 md:block md:pr-12 lg:w-[60%]">
         {/* images */}
@@ -105,18 +105,6 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
     },
   };
 
-  const containerVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 1,
-      },
-    },
-  };
-
   const itemVariants = {
     hidden: {
       opacity: 0,
@@ -128,7 +116,7 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
       transition: {
         type: 'spring',
         duration: 0.5,
-        delay: index * 0.8,
+        delay: index * 0.35,
       },
     }),
   };

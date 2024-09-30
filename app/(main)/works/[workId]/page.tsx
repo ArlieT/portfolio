@@ -37,23 +37,11 @@ export default function Page({ params }: Props) {
     (work) => currentWork && work.id === currentWork.id + 1,
   );
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Project',
-    name: currentWork?.name,
-    image: currentWork?.mainImage,
-    description: currentWork?.description,
-  };
-
   // if nextwwork is not found, render the first work
   const work = nextWork || works[0];
 
   return (
     <div className="flex flex-col items-center gap-4 md:gap-6 md:p-0 md:pb-6 md:pt-[500px] lg:pt-[450px]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <div className="z-[9999999] mx-auto w-[90%] md:absolute md:-top-[400px] md:w-full lg:-top-96 lg:w-[80%]">
         <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-3xl md:h-[810px] md:rounded-[48px]">
           <Image
