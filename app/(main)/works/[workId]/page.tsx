@@ -123,7 +123,7 @@ export default function Page({ params }: Props) {
               />
             </div>
           ))}
-        <div className="border-b-2 border-foreground" />
+        <div className="mt-4 border border-b-2 border-foreground" />
         <NextProject work={work} />
       </div>
     </div>

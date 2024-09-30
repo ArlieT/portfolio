@@ -14,10 +14,10 @@ import {
 import '../globals.css';
 
 export const metadata: Metadata = {
-  title: 'Arlie',
+  title: "Arlie's Portfolio",
   description: "Arlie's portfolio and blog",
   openGraph: {
-    title: 'Arlie',
+    title: "Arlie's Portfolio",
     description: "Arlie's portfolio work showcase",
     url: 'https://torres-arlie.vercel.app/',
     siteName: 'Arlie Portfolio',
