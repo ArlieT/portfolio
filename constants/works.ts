@@ -9,6 +9,7 @@ export type Work = {
   mainImage: string;
   images?: string[];
   technologies?: string[];
+  'showcase-heading': string;
 };
 
 export const works: Work[] = [
@@ -37,6 +38,7 @@ export const works: Work[] = [
       'PostgreSQL',
       'Socket.io',
     ],
+    'showcase-heading': 'Website',
   },
 
   {
@@ -58,6 +60,7 @@ export const works: Work[] = [
       'Supabase',
       'Zustand',
     ],
+    'showcase-heading': 'Website',
   },
   {
     id: 2,
@@ -73,6 +76,7 @@ export const works: Work[] = [
       '/images/projects/virtual-vazaar/cart.png',
       '/images/projects/virtual-vazaar/contact.png',
     ],
+    'showcase-heading': 'Website',
     technologies: ['NextJs', 'TailwindCss', 'NextAuth'],
   },
   // {

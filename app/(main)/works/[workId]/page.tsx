@@ -61,7 +61,7 @@ export default function Page({ params }: Props) {
           <hr className="h-[2.5px] w-full bg-foreground" />
 
           <div className="flex flex-col justify-between md:flex-row">
-            <table className="w-full">
+            <table className="w-auto">
               <tbody>
                 <tr className="flex w-full gap-x-6">
                   <td className="font-variation-bold flex-1 text-lg uppercase">
@@ -108,12 +108,16 @@ export default function Page({ params }: Props) {
                 </tr>
               </tbody>
             </table>
+            <div className="my-4 w-full text-pretty text-left text-sm md:my-0 md:text-lg">
+              <p>{currentWork?.description}</p>
+            </div>
           </div>
         </div>
-        <div className="my-4 w-full flex-1 text-center text-sm md:text-lg">
-          <p>{currentWork?.description}</p>
-        </div>
+        {/*  */}
 
+        <div className="font-variation-bold text-center font-feixenBold text-lg md:text-2xl">
+          <h2>Website</h2>
+        </div>
         {currentWork?.images &&
           currentWork?.images.map((image, index) => (
             <div

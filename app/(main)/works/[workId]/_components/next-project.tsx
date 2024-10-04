@@ -28,13 +28,13 @@ function NextProject({ work }: { work: Work }) {
   };
 
   return (
-    <div className="relative flex w-full justify-between py-5 font-feixenBold text-base md:text-2xl">
+    <div className="font-variation-bold relative flex w-full justify-between py-5 font-feixenBold text-base md:text-xl">
       <Link href={`/works/${work?.key}`}>
         <motion.div
           whileHover="visible"
           whileTap="visible"
           initial="hidden"
-          className="font-variation-bold flex w-fit"
+          className="flex w-fit"
           key={work?.key}
         >
           <motion.div
@@ -49,9 +49,9 @@ function NextProject({ work }: { work: Work }) {
           </motion.p>
         </motion.div>
       </Link>
-      <div className="text-end font-feixen text-xs md:text-xl">
-        <p className="font-variation-bold truncate text-wrap">{work?.name}</p>
-        <p className="">{work?.category}</p>
+      <div className="text-end font-feixen">
+        <p className="truncate text-wrap">{work?.name}</p>
+        <p className="font-variation text-sm md:text-base">{work?.category}</p>
       </div>
     </div>
   );
