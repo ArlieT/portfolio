@@ -2,7 +2,6 @@ import { works } from '@/constants/works';
 // import { motion } from 'framer-motion';
 import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import NextProject from './_components/next-project';
 
 type Props = {
@@ -108,14 +107,14 @@ export default function Page({ params }: Props) {
                 </tr>
               </tbody>
             </table>
-            <div className="my-4 w-full text-pretty text-left text-sm md:my-0 md:text-lg">
+            <div className="my-4 w-3/6 text-pretty text-left text-sm md:my-0 md:text-lg">
               <p>{currentWork?.description}</p>
             </div>
           </div>
         </div>
         {/*  */}
 
-        <div className="font-variation-bold text-center font-feixenBold text-lg md:text-2xl">
+        <div className="font-variation-bold pt-5 text-center font-feixenBold text-lg md:text-2xl">
           <h2>Website</h2>
         </div>
         {currentWork?.images &&
@@ -128,8 +127,8 @@ export default function Page({ params }: Props) {
                 src={image || ''}
                 alt={image || ''}
                 // fill
-                width={2000}
-                height={1413}
+                width={1000}
+                height={1000}
                 className="aspect-custom h-full w-full object-cover"
               />
             </div>
