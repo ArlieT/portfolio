@@ -9,6 +9,10 @@ export type Work = {
   mainImage: string;
   images?: string[];
   technologies?: string[];
+  viewable?:{
+      isViewable:boolean
+      href:string
+  }
   'showcase-heading': string;
 };
 
@@ -96,6 +100,13 @@ export const works: Work[] = [
     //   '/images/projects/subscription-calendar/mobile-details-modal.png',
     //   '/images/projects/subscription-calendar/profile.png',
     ],
+
+    viewable:{
+        isViewable:true,
+        href:'https://subscription-mini.vercel.app/'
+
+    },
+
     'showcase-heading': 'Website',
     technologies: [
       'NextJs',
