@@ -117,4 +117,21 @@ export const works: Work[] = [
     'showcase-heading': 'Website',
     technologies: ['NextJs', 'TailwindCss', 'NextAuth'],
   },
+  {
+    id: 5,
+    key: 'portfolio',
+    name: 'Arlie Torres',
+    category: 'Web Development',
+    role: 'Fullstack Developer',
+    year: '2024',
+    description: `A simple portfolio website. The project showcases my ability to create engaging user experiences.`,
+    mainImage: '/images/projects/portfolio/main-page.png',
+    images: [
+      '/images/projects/portfolio/works-calendar.png',
+      '/images/projects/portfolio/works-page.png',
+      '/images/projects/portfolio/about-page.png',
+    ],
+    'showcase-heading': 'Website',
+    technologies: ['NextJs', 'TailwindCss', 'NextAuth'],
+  },
 ];

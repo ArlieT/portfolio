@@ -46,7 +46,7 @@ function ThemeToggle() {
             className="absolute"
             title="Theme"
           >
-            <PiSunBold className="size-4 md:size-6" />
+            <PiSunBold className="size-6 md:size-6" />
           </motion.div>
           <motion.div
             key="moon"
@@ -55,7 +55,7 @@ function ThemeToggle() {
             exit="exit"
             variants={moonVariants}
           >
-            <PiMoonBold size={17} className="size-4 -scale-x-100 md:size-6" />
+            <PiMoonBold size={17} className="size-6 -scale-x-100 md:size-6" />
           </motion.div>
         </>
       )}
