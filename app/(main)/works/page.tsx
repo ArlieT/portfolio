@@ -178,7 +178,7 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
                   >
                     {project.key}
                   </motion.h4>
-                  <h4 className="font-variation flex items-center justify-center truncate text-base">
+                  <h4 className="font-variation flex items-center justify-center truncate text-xs md:text-base">
                     {project.category}
                   </h4>
                 </div>

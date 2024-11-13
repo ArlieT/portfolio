@@ -9,10 +9,10 @@ export type Work = {
   mainImage: string;
   images?: string[];
   technologies?: string[];
-  viewable?:{
-      isViewable:boolean
-      href:string
-  }
+  viewable?: {
+    isViewable: boolean;
+    href: string;
+  };
   'showcase-heading': string;
 };
 
@@ -43,6 +43,40 @@ export const works: Work[] = [
       'Socket.io',
     ],
     'showcase-heading': 'Website',
+  },
+  {
+    id: 4,
+    key: 'subscription-calendar',
+    name: 'Subscription Calendar',
+    category: 'Web Development',
+    role: 'Fullstack',
+    year: '2024',
+    description:
+      'A lightweight calendar app for tracking and managing subscriptions, helping users stay on top of recurring payments and due dates.',
+    mainImage: '/images/projects/subscription-calendar/main.png',
+    images: [
+      '/images/projects/subscription-calendar/main.png',
+      '/images/projects/subscription-calendar/details-modal.png',
+      '/images/projects/subscription-calendar/profile.png',
+      //   '/images/projects/subscription-calendar/mobile-main.png',
+      //   '/images/projects/subscription-calendar/mobile-details-modal.png',
+      //   '/images/projects/subscription-calendar/profile.png',
+    ],
+
+    viewable: {
+      isViewable: true,
+      href: 'https://subscription-mini.vercel.app/',
+    },
+
+    'showcase-heading': 'Website',
+    technologies: [
+      'NextJs',
+      'TailwindCss',
+      'Shadcn',
+      'ClerkAuth',
+      'Prisma',
+      'Supabase',
+    ],
   },
 
   {
@@ -82,39 +116,5 @@ export const works: Work[] = [
     ],
     'showcase-heading': 'Website',
     technologies: ['NextJs', 'TailwindCss', 'NextAuth'],
-  },
-  {
-    id: 4,
-    key: 'subscription-calendar',
-    name: 'Subscription Calendar',
-    category: 'Web Development',
-    role: 'Fullstack',
-    year: '2024',
-    description: 'A lightweight calendar app for tracking and managing subscriptions, helping users stay on top of recurring payments and due dates.',
-    mainImage: '/images/projects/subscription-calendar/main.png',
-    images: [
-      '/images/projects/subscription-calendar/main.png',
-      '/images/projects/subscription-calendar/details-modal.png',
-      '/images/projects/subscription-calendar/profile.png',
-    //   '/images/projects/subscription-calendar/mobile-main.png',
-    //   '/images/projects/subscription-calendar/mobile-details-modal.png',
-    //   '/images/projects/subscription-calendar/profile.png',
-    ],
-
-    viewable:{
-        isViewable:true,
-        href:'https://subscription-mini.vercel.app/'
-
-    },
-
-    'showcase-heading': 'Website',
-    technologies: [
-      'NextJs',
-      'TailwindCss',
-      'Shadcn',
-      'ClerkAuth',
-      'Prisma',
-      'Supabase',
-    ],
   },
 ];

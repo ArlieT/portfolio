@@ -5,6 +5,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import NextProject from './_components/next-project';
+import AnimatedImages from './_components/animated-images';
 
 type Props = {
   params: { workId: string };
@@ -133,22 +134,7 @@ export default function Page({ params }: Props) {
         <div className="font-variation-bold pt-5 text-center font-feixenBold text-lg md:text-2xl">
           <h2>Website</h2>
         </div>
-        {currentWork?.images &&
-          currentWork?.images.map((image, index) => (
-            <div
-              key={image}
-              className="custom-shadow relative mx-auto h-full w-full overflow-hidden"
-            >
-              <Image
-                src={image || ''}
-                alt={image || ''}
-                // fill
-                width={1000}
-                height={1000}
-                className="aspect-custom h-full w-full object-cover"
-              />
-            </div>
-          ))}
+        <AnimatedImages images={currentWork?.images} />
         <div className="border-b-2 border-foreground" />
         <NextProject work={work} />
       </div>
