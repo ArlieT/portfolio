@@ -132,6 +132,6 @@ export const works: Work[] = [
       '/images/projects/portfolio/about-page.png',
     ],
     'showcase-heading': 'Website',
-    technologies: ['NextJs', 'TailwindCss', 'NextAuth'],
+    technologies: ['NextJs15', 'TailwindCss', 'Framer-motion'],
   },
 ];
