@@ -4,6 +4,7 @@ import NavigationMenu from '@/components/NavigationMenu';
 import { SidebarProvider } from '@/components/SidebarProvider';
 import ThemeProdiver from '@/components/provider/ThemeProvider';
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import {
   bebasNeue,
   feixen,
@@ -66,6 +67,7 @@ export default function RootLayout({
               <Header />
               <div className="h-[calc(100dvh-82px)] md:h-[calc(100dvh-130px)]">
                 <Container>{children}</Container>
+                <Analytics />
               </div>
             </div>
             <div className="noise" />
