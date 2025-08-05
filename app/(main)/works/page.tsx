@@ -39,7 +39,7 @@ function Works() {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="c/md:p-8 relative flex h-full gap-x-4 overflow-hidden p-4 pt-[140px] md:-bottom-4 md:-left-10"
+      className="relative flex h-full gap-x-4 overflow-hidden p-4 md:-bottom-4 md:-left-10 md:pt-[140px]"
     >
       <div className="relative hidden h-full min-h-max w-[70%] overflow-hidden rounded-tr-3xl p-2 md:block md:pr-12 lg:w-[60%]">
         {/* images */}

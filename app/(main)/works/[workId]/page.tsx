@@ -36,7 +36,7 @@ export default function Page({ params }: Props) {
 
   const currentWork = works.find((work) => work.key === params.workId);
   const nextWork = works.find(
-    (work) => currentWork && work.id === currentWork.id + 1,
+    (work) => currentWork && work.id === +currentWork.id + 1,
   );
 
   // if nextwwork is not found, render the first work

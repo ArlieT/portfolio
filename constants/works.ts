@@ -1,5 +1,5 @@
 export type Work = {
-  id: number;
+  id: string | number;
   key: string;
   name: string;
   category: string;
@@ -18,7 +18,7 @@ export type Work = {
 
 export const works: Work[] = [
   {
-    id: 1,
+    id: 'oohray',
     key: 'OohRay',
     name: 'OohRay - travel and lifestyle services marketplace',
     category: 'Web Development',
@@ -55,7 +55,7 @@ export const works: Work[] = [
     'showcase-heading': 'Website',
   },
   {
-    id: 2,
+    id: 'fruits',
     key: 'fruits',
     name: 'Fruits - Baccarat Betting Site',
     category: 'Web Development',
@@ -81,6 +81,27 @@ export const works: Work[] = [
     ],
     'showcase-heading': 'Website',
   },
+  {
+    id: 'scrollnshop',
+    key: 'scrollnshop',
+    name: 'Scroll n Shop - Ukay ukay Store',
+    category: 'Web Development / Shopify',
+    role: 'Fullstack Developer',
+    year: '2025',
+    description: `Developed Scroll n Shop, a dynamic online store for buying and selling unique items. The project showcases my ability to create engaging user experiences.`,
+    mainImage: '/images/projects/scrollnshop/collage.png',
+    images: [
+      '/images/projects/scrollnshop/main.png',
+      '/images/projects/scrollnshop/collage.png',
+      '/images/projects/scrollnshop/products.png',
+      '/images/projects/scrollnshop/collections.png',
+      '/images/projects/scrollnshop/video.png',
+      '/images/projects/scrollnshop/cart.png',
+    ],
+    technologies: ['Shopify'],
+    'showcase-heading': 'Website',
+  },
+
   {
     id: 4,
     key: 'subscription-calendar',
