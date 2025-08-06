@@ -115,8 +115,8 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
       opacity: 1,
       transition: {
         type: 'spring',
-        duration: 0.5,
-        delay: index * 0.35,
+        duration: 1,
+        delay: index * 0.2,
       },
     }),
   };

@@ -15,7 +15,6 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  // read route params
   const id = params.workId;
 
   const currentWork = works.find((work) => work.key === id);

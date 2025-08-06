@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Underline from './Helpers';
 import { useSidebar } from './SidebarProvider';
 import ThemeToggle from './ThemeToggle';
+import { Favicon } from './FavIcon';
+import { useIsMobile } from '@/hooks/isMobile';
 
 function Header() {
   const [isHovered, setIsHovered] = useState(false);
@@ -106,6 +108,8 @@ function Header() {
     return 'inital';
   };
 
+  const isMobile = useIsMobile();
+
   return (
     <header className="c/max-h-[128px] fixed top-0 z-[999] max-h-[12%] w-full text-foreground backdrop-blur-[1px]">
       <div className="C/overflow-hidden flex w-full items-center justify-between p-6 md:p-14">
@@ -116,23 +120,15 @@ function Header() {
             }
           }}
           href="/"
-          className="flex h-fit w-fit flex-col items-center justify-center gap-2 text-xl md:flex-row"
+          className="flex h-fit w-fit flex-col justify-center gap-2 text-xl md:flex-row md:items-center"
         >
-          <div className="overlay-invert-accent size-8 h-10 w-10 self-start rounded-full bg-foreground lg:size-12" />
-          {/* <Image
-            src="/images/logo_no_bg.png"
-            alt="logo"
-            width={100}
-            height={100}
-            className="w-14 md:w-20"
-          /> */}
+          {/* <div className="overlay-invert-accent size-8 h-10 w-10 self-start rounded-full bg-foreground lg:size-12" /> */}
+          <Favicon size={isMobile ? 32 : 48} />
+
           <motion.div
             variants={nameVariants}
             initial="hidden"
             animate={isOpen ? 'visible' : 'hidden'}
-            // className={cn({
-            //   hidden: !isOpen,
-            // })}
           >
             <div className="prevent-uppercase group overflow-x-hidden font-feixen transition-all">
               <h1 className="name overlay-invert-accent text-sm font-bold md:text-2xl">

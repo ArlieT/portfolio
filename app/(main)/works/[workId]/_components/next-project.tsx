@@ -11,8 +11,8 @@ function NextProject({ work }: { work: Work }) {
     exit: { x: '-100%', opacity: 0 },
     transition: {
       type: 'spring',
-      bounce: 0.5,
-      duration: 0.5,
+      bounce: 0.2,
+      duration: 0.2,
     },
   };
 
@@ -22,8 +22,8 @@ function NextProject({ work }: { work: Work }) {
     exit: { x: '-100%', opacity: 0 },
     transition: {
       type: 'spring',
-      bounce: 0.5,
-      duration: 0.5,
+      bounce: 0.2,
+      duration: 0.2,
     },
   };
 

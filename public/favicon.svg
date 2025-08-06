@@ -1,0 +1,28 @@
+
+
+
+
+<svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+        <rect width="32" height="32" rx="8" fill="var(--background, #606887)" /> 
+
+      <path
+        d="M11 22 L8 10 L10 10 L13 22 Z M9 18 L12 18"
+        stroke="var(--foreground, #f3f2f9)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+
+      <path
+        d="M18 10 L26 10 M22 10 L22 22"
+        stroke="var(--foreground, #f3f2f9)"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>

@@ -9,10 +9,8 @@ type Props = {
 const AnimatedImages = ({ images }: Props) => {
   if (!images) return null;
 
-  console.log(images);
-
   return (
-    <div className="space-y-10">
+    <div className="mx-auto flex w-[80%] flex-col items-center justify-center space-y-10">
       {images.map((image, index) => (
         <FadeUp key={index}>
           <Image
@@ -20,7 +18,7 @@ const AnimatedImages = ({ images }: Props) => {
             alt="arlie"
             width={2000}
             height={3000}
-            className="aspect-custom h-auto w-full object-cover object-center"
+            className="mx-auto aspect-video h-auto w-full object-cover object-center outline"
           />
         </FadeUp>
       ))}

@@ -26,7 +26,7 @@ export const works: Work[] = [
     year: '2025',
     description: `Developed OohRay, a comprehensive travel. The platform enables users to seamlessly book travel experiences, car rentals, and local lifestyle services such as dining vouchers and event tickets. Implemented features include a dynamic booking engine, user reviews, payment integration, and merchant management tools. As the full stack developer, I led the development of both frontend and backend systems using Next.js a responsive UI and scalable architecture.,
 `,
-    mainImage: '/images/projects/oohray-rental/9.png',
+    mainImage: '/images/projects/oohray-rental/main.png',
     images: [
       '/images/projects/oohray-rental/1.png',
       '/images/projects/oohray-rental/2.png',
