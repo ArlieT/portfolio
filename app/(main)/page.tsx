@@ -2,11 +2,13 @@
 
 import { cn } from '@/_util/helpers';
 import Underline from '@/components/Helpers';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
 import { tv } from 'tailwind-variants';
 
 export default function Home() {
+  const controls = useAnimation();
   const itemVariants = {
     hidden: {
       y: '-100%',
@@ -39,20 +41,36 @@ export default function Home() {
           className="font-variation-bold mx-auto mb-2 flex w-full items-center justify-center gap-x-2 text-balance text-center uppercase tracking-wider md:text-2xl lg:text-[2.5rem] dark:text-accent-light"
         >
           <span className="text-outline">Hi, I&apos;m </span>
-          <div className="relative w-fit overflow-hidden outline-red-500">
-            Arlie Torres
-            <div
-              className="absolute bottom-0 mx-auto w-fit"
+          <motion.div
+            className="relative w-fit"
+            onHoverStart={() => {
+              controls.start({
+                backgroundPositionX: ['0%', '100%'],
+                transition: {
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  ease: 'linear',
+                  duration: 5,
+                },
+              });
+            }}
+            onHoverEnd={() => {
+              controls.stop();
+            }}
+          >
+            <span className="">Arlie Torres</span>
+            <motion.div
+              className="absolute -bottom-1 left-0 z-[-1] mx-auto w-full"
               style={{
                 backgroundImage: "url('/svg/wave-light.svg')",
-                opacity: 0.5,
-                width: ' 100%',
+                backgroundRepeat: 'repeat-x',
+                backgroundSize: 'contain',
+                opacity: 0.8,
                 height: '50%',
-                backgroundPositionX: 0,
-                backgroundPositionY: 0,
               }}
+              animate={controls}
             />
-          </div>
+          </motion.div>
         </motion.div>
         <motion.div
           custom={4}

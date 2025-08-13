@@ -66,6 +66,12 @@ body {
     'wdth' 125;
 }
 
+/* .font-variation-bold:hover {
+  font-variation-settings:
+    'wght' 1000,
+    'wdth' 100;
+} */
+
 .font-variation {
   font-family: var(--font-feixen), Arial, Helvetica, sans-serif;
   font-variation-settings:
@@ -169,4 +175,23 @@ body {
   90% {
     transform: translate(-15%, 0);
   }
+}
+
+.bg-wave {
+  background-image: url('/public/svg/wave-light.svg');
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+
+@keyframes wave {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 100%;
+  }
+}
+
+.animate-wave {
+  animation: wave 2s linear infinite;
 }
