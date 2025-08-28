@@ -33,13 +33,16 @@ export async function generateMetadata(
 export default function Page({ params }: Props) {
   // TODO color pallet base on work photo
 
-  const currentWork = works.find((work) => work.key === params.workId);
+  console.log('test', params.workId);
+  const currentWork = works.find(
+    (work) => work.key === decodeURIComponent(params.workId),
+  );
   const nextWork = works.find(
     (work) => currentWork && work.id === +currentWork.id + 1,
   );
 
   // if nextwwork is not found, render the first work
-  const work = nextWork || works[0];
+  const nextWorkRepeat = nextWork || works[0];
 
   return (
     <div className="flex flex-col items-center gap-4 md:gap-6 md:p-0 md:pb-6 md:pt-[500px] lg:pt-[450px]">
@@ -49,7 +52,7 @@ export default function Page({ params }: Props) {
             src={currentWork?.mainImage || ''}
             alt="arlie"
             fill
-            className="aspect-custom h-full w-full object-cover object-center"
+            className="c/aspect-custom h-full w-full object-cover object-center"
           />
         </div>
       </div>
@@ -62,46 +65,42 @@ export default function Page({ params }: Props) {
           <hr className="h-[2.5px] w-full bg-foreground" />
 
           <div className="flex flex-col justify-between md:flex-row">
-            <table className="w-fit">
+            <table className="w-2/4 table-fixed border-collapse">
               <tbody>
-                <tr className="flex w-full">
-                  <td className="font-variation-bold flex-1 text-lg uppercase">
+                <tr>
+                  <td className="font-variation-bold w-[30%] text-lg uppercase">
                     <h6>Category</h6>
                   </td>
-
-                  <td className="flex-1 flex-grow opacity-90">
+                  <td className="w-[70%] opacity-90">
                     <ul>
                       <li>{currentWork?.category}</li>
                     </ul>
                   </td>
                 </tr>
-                <tr className="flex">
-                  <td className="font-variation-bold flex-1 text-lg uppercase">
+
+                <tr>
+                  <td className="font-variation-bold w-[30%] text-lg uppercase">
                     Role
                   </td>
-                  <td className="flex-1">{currentWork?.role}</td>
-                </tr>
-                <tr className="flex">
-                  <td className="font-variation-bold flex-1 text-lg uppercase">
-                    Year
-                  </td>
-                  <td className="flex-1">{currentWork?.year}</td>
+                  <td className="w-[70%]">{currentWork?.role}</td>
                 </tr>
 
-                <tr className="flex">
-                  <td className="font-variation-bold flex-1 text-lg uppercase">
-                    Stack
+                <tr>
+                  <td className="font-variation-bold w-[30%] text-lg uppercase">
+                    Year
                   </td>
-                  <td className="font-variation flex-1 text-sm md:text-base">
+                  <td className="w-[70%]">{currentWork?.year}</td>
+                </tr>
+
+                <tr>
+                  <td className="font-variation-bold relative w-[30%] text-lg uppercase">
+                    <div className="absolute top-0">Stack</div>
+                  </td>
+                  <td className="flex w-[70%] flex-wrap gap-1">
                     [
-                    {currentWork?.technologies?.map((tech, index) => (
-                      <span key={tech}>
-                        {index === 0 && <>&nbsp;</>}{' '}
-                        {/* Add space before the first item */}
-                        {tech}
-                        {index < currentWork?.technologies!.length - 1
-                          ? ',\u00A0'
-                          : '\u00A0'}
+                    {currentWork?.technologies?.map((work) => (
+                      <span key={work} className="inline-block px-1">
+                        {work}
                       </span>
                     ))}
                     ]
@@ -109,11 +108,12 @@ export default function Page({ params }: Props) {
                 </tr>
               </tbody>
             </table>
+
             <div className="flex flex-col justify-between md:w-3/6">
               <div className="my-4 text-pretty text-left text-sm md:my-0 md:text-lg">
                 <p>{currentWork?.description}</p>
               </div>
-              <div className="flex items-center">
+              <div className="my-4 flex items-center">
                 {currentWork?.viewable?.isViewable ? (
                   <Link
                     href={currentWork.viewable.href}
@@ -135,7 +135,7 @@ export default function Page({ params }: Props) {
         </div>
         <AnimatedImages images={currentWork?.images} />
         <div className="border-b-2 border-foreground" />
-        <NextProject work={work} />
+        <NextProject work={nextWorkRepeat} />
       </div>
     </div>
   );

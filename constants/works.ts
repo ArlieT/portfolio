@@ -1,5 +1,5 @@
 export type Work = {
-  id: string | number;
+  id: number;
   key: string;
   name: string;
   category: string;
@@ -18,8 +18,29 @@ export type Work = {
 
 export const works: Work[] = [
   {
-    id: 'oohray',
-    key: 'OohRay',
+    id: 1,
+    key: 'saas-landing-page',
+    name: 'Saas Landing Page',
+    category: 'Web Development',
+    role: 'All',
+    year: '2025',
+    description: `A pre-defined layout and component hierarchy designed to accelerate the creation of SaaS marketing websites. It includes essential sections such as a hero banner, feature highlights, testimonials, pricing tables, and call-to-actions. By following this structure, developers and designers can skip repetitive setup work.`,
+    mainImage: '/images/projects/saas-landing-page/main.png',
+    images: [
+      '/images/projects/saas-landing-page/main.png',
+      '/images/projects/saas-landing-page/benefits.png',
+      '/images/projects/saas-landing-page/pricing.png',
+    ],
+    technologies: ['NextJs', 'Htmlm/Css', 'TailwindCss'],
+    'showcase-heading': 'Website',
+    viewable: {
+      isViewable: true,
+      href: 'https://saas-landing-page-structure.vercel.app/',
+    },
+  },
+  {
+    id: 2,
+    key: 'oohray',
     name: 'OohRay - travel and lifestyle services marketplace',
     category: 'Web Development',
     role: 'Full Stack Developer',
@@ -55,7 +76,7 @@ export const works: Work[] = [
     'showcase-heading': 'Website',
   },
   {
-    id: 'fruits',
+    id: 3,
     key: 'fruits',
     name: 'Fruits - Baccarat Betting Site',
     category: 'Web Development',
@@ -82,7 +103,7 @@ export const works: Work[] = [
     'showcase-heading': 'Website',
   },
   {
-    id: 'scrollnshop',
+    id: 4,
     key: 'scrollnshop',
     name: 'Scroll n Shop - Ukay ukay Store',
     category: 'Web Development / Shopify',
@@ -103,7 +124,7 @@ export const works: Work[] = [
   },
 
   {
-    id: 4,
+    id: 5,
     key: 'subscription-calendar',
     name: 'Subscription Calendar',
     category: 'Web Development',
@@ -138,7 +159,7 @@ export const works: Work[] = [
   },
 
   {
-    id: 3,
+    id: 6,
     key: 'solely-shoes',
     name: 'Solely shoes',
     category: 'Web Development',
@@ -159,7 +180,7 @@ export const works: Work[] = [
     'showcase-heading': 'Website',
   },
   {
-    id: 2,
+    id: 7,
     key: 'virtual-vazaar',
     name: 'Virtual Vazaar',
     category: 'Web Development',
@@ -176,7 +197,7 @@ export const works: Work[] = [
     technologies: ['NextJs', 'TailwindCss', 'NextAuth'],
   },
   {
-    id: 5,
+    id: 8,
     key: 'portfolio',
     name: 'Arlie Torres',
     category: 'Web Development',

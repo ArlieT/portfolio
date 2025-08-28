@@ -39,7 +39,7 @@ function Works() {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="relative flex h-full gap-x-4 overflow-hidden p-4 md:-bottom-4 md:-left-10 md:pt-[140px]"
+      className="relative flex h-full gap-x-4 overflow-hidden p-4 md:-left-10 xl:pt-[140px]"
     >
       <div className="relative hidden h-full min-h-max w-[70%] overflow-hidden rounded-tr-3xl p-2 md:block md:pr-12 lg:w-[60%]">
         {/* images */}
@@ -122,7 +122,7 @@ function Projects({ listOfProjects, setProjectToShow }: Props) {
   };
 
   return (
-    <div className="h-full w-full md:w-[60%] md:lg:pr-[240px]">
+    <div className="h-full w-full overflow-y-auto md:w-[60%] md:lg:pr-[240px]">
       <motion.div
         variants={itemVariants}
         className="flex justify-between border-b border-b-foreground py-6 md:border-b-2"

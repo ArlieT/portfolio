@@ -10,15 +10,15 @@ const AnimatedImages = ({ images }: Props) => {
   if (!images) return null;
 
   return (
-    <div className="mx-auto flex flex-col items-center justify-center space-y-10 md:w-[80%]">
+    <div className="mx-auto flex flex-col items-center justify-center space-y-10 md:w-[70%]">
       {images.map((image, index) => (
         <FadeUp key={index}>
           <Image
             src={image}
             alt="arlie"
-            width={2000}
-            height={3000}
-            className="mx-auto aspect-video h-auto w-full object-cover object-center outline"
+            width={1000}
+            height={1000}
+            className="mx-auto h-full w-full object-cover object-center outline"
           />
         </FadeUp>
       ))}
