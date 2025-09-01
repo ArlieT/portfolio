@@ -41,7 +41,7 @@ export const works: Work[] = [
   {
     id: 2,
     key: 'oohray',
-    name: 'OohRay - travel and lifestyle services marketplace',
+    name: 'OohRay - travel and lifestyle',
     category: 'Web Development',
     role: 'Full Stack Developer',
     year: '2025',

@@ -44,14 +44,16 @@ function NextProject({ work }: { work: Work }) {
           >
             →
           </motion.div>
-          <motion.p variants={textVariant} className="whitespace-nowrap">
+          <motion.p variants={textVariant} className="">
             next project
           </motion.p>
         </motion.div>
       </Link>
       <div className="text-end font-feixen">
         <p className="truncate text-wrap">{work?.name}</p>
-        <p className="font-variation text-sm md:text-base">{work?.category}</p>
+        <p className="font-variation truncate text-sm md:text-base">
+          {work?.category}
+        </p>
       </div>
     </div>
   );

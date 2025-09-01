@@ -64,50 +64,60 @@ export default function Page({ params }: Props) {
           </h1>
           <hr className="h-[2.5px] w-full bg-foreground" />
 
-          <div className="flex flex-col justify-between md:flex-row">
-            <table className="w-2/4 table-fixed border-collapse">
-              <tbody>
-                <tr>
-                  <td className="font-variation-bold w-[30%] text-lg uppercase">
-                    <h6>Category</h6>
-                  </td>
-                  <td className="w-[70%] opacity-90">
-                    <ul>
-                      <li>{currentWork?.category}</li>
-                    </ul>
-                  </td>
-                </tr>
+          <div className="flex flex-col justify-between gap-6 md:flex-row">
+            <div className="w-full md:w-2/4">
+              <table className="w-full table-auto border-collapse md:table-fixed">
+                <tbody>
+                  <tr className="">
+                    <td className="font-variation-bold py-2 pr-4 text-sm uppercase md:w-[30%] md:py-0 md:text-lg">
+                      <h6>Category</h6>
+                    </td>
+                    <td className="py-2 opacity-90 md:w-[70%] md:py-0">
+                      <ul>
+                        <li className="text-sm md:text-base">
+                          {currentWork?.category}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
 
-                <tr>
-                  <td className="font-variation-bold w-[30%] text-lg uppercase">
-                    Role
-                  </td>
-                  <td className="w-[70%]">{currentWork?.role}</td>
-                </tr>
+                  <tr className="">
+                    <td className="font-variation-bold py-2 pr-4 text-sm uppercase md:w-[30%] md:py-0 md:text-lg">
+                      Role
+                    </td>
+                    <td className="py-2 text-sm md:w-[70%] md:py-0 md:text-base">
+                      {currentWork?.role}
+                    </td>
+                  </tr>
 
-                <tr>
-                  <td className="font-variation-bold w-[30%] text-lg uppercase">
-                    Year
-                  </td>
-                  <td className="w-[70%]">{currentWork?.year}</td>
-                </tr>
+                  <tr className="">
+                    <td className="font-variation-bold py-2 pr-4 text-sm uppercase md:w-[30%] md:py-0 md:text-lg">
+                      Year
+                    </td>
+                    <td className="py-2 text-sm md:w-[70%] md:py-0 md:text-base">
+                      {currentWork?.year}
+                    </td>
+                  </tr>
 
-                <tr>
-                  <td className="font-variation-bold relative w-[30%] text-lg uppercase">
-                    <div className="absolute top-0">Stack</div>
-                  </td>
-                  <td className="flex w-[70%] flex-wrap gap-1">
-                    [
-                    {currentWork?.technologies?.map((work) => (
-                      <span key={work} className="inline-block px-1">
-                        {work}
-                      </span>
-                    ))}
-                    ]
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                  <tr>
+                    <td className="font-variation-bold relative py-2 pr-4 text-sm uppercase md:w-[30%] md:py-0 md:text-lg">
+                      <div className="top-0">Stack</div>
+                    </td>
+                    <td className="py-2 md:w-[70%] md:py-0">
+                      <div className="flex w-full flex-wrap gap-1 text-sm md:text-base">
+                        [
+                        {currentWork?.technologies?.map((work) => (
+                          <span key={work} className="inline-block px-1">
+                            {work}
+                          </span>
+                        ))}
+                        ]
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <div className="flex flex-col justify-between md:w-3/6">
               <div className="my-4 text-pretty text-left text-sm md:my-0 md:text-lg">

@@ -10,7 +10,7 @@ import { Dispatch, SetStateAction, useState } from 'react';
 function Works() {
   const [projecToShow, setProjectToShow] = useState<number | null>(null);
 
-  const listOfWorks = works.map((work, index) => ({
+  const listOfWorks = works.map((work) => ({
     image: work.mainImage || '',
     name: work.name,
     key: work.key,
