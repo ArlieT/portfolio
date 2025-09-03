@@ -144,7 +144,7 @@ export const works: Work[] = [
 
     viewable: {
       isViewable: true,
-      href: 'https://subscription-mini.vercel.app/',
+      href: 'https://subscription-mini-calendar.vercel.app',
     },
 
     'showcase-heading': 'Website',
