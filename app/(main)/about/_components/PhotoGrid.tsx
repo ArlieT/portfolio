@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Fragment } from 'react';
 import { motion, Transition, Variants } from 'framer-motion';
 import HeartButtons from './HeartButtons';
+import Link from 'next/link';
 
 function PhotoGrid({ photos, error }: { photos: Photos[]; error: string }) {
   const itemVariants: Variants = {
@@ -41,7 +42,7 @@ function PhotoGrid({ photos, error }: { photos: Photos[]; error: string }) {
               )}
             >
               <Image
-                src={`/images/photography/${file.photosUrl}`}
+                src={file.photosUrl || ''}
                 alt={file?.photosUrl!}
                 fill
                 sizes="(100vw - 2rem) 100vw"
