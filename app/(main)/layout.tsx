@@ -15,8 +15,12 @@ import {
 import '../globals.css';
 
 export const metadata: Metadata = {
-  title: "Arlie's Portfolio",
-  description: "Arlie's portfolio and blog",
+  title: {
+    template: "%s | Arlie Torres' Portfolio",
+    default: "Arlie Torres' Portfolio",
+  },
+  description:
+    "Arlie Torres' portfolio and blog. A website showcasing his work.",
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
