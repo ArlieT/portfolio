@@ -6,7 +6,7 @@ import { getPhotos } from '@/actions/photos';
 import PhotoGrid from './_components/PhotoGrid';
 import AboutMe from '@/components/AboutMe';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'About me',
@@ -14,6 +14,9 @@ export const metadata: Metadata = {
 
 async function About() {
   const { data: photos, error } = await getPhotos();
+
+  // Log for debugging in production
+  console.log('Photos loaded:', photos?.length || 0, 'Error:', error);
 
   return (
     <div className="relative flex flex-col gap-x-2 p-4 pb-8 will-change-scroll md:h-[calc(100dvh-130px)] md:p-8 lg:h-full lg:flex-row">
@@ -72,8 +75,8 @@ async function About() {
       </div>
 
       <div className="c/overflow-hidden mx-auto h-full w-full md:w-[80%]">
-        <Suspense fallback={<div>Loading...</div>}>
-          <PhotoGrid photos={photos} error={error || ''} />
+        <Suspense fallback={<div>Loading photos...</div>}>
+          <PhotoGrid photos={photos || []} error={error || ''} />
         </Suspense>
       </div>
     </div>

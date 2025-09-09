@@ -1,18 +1,19 @@
 {
-  "extends": ["next/core-web-vitals" , "airbnb-typescript"],
+  "extends": ["next/core-web-vitals", "airbnb-typescript"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
   "rules": {
-    "max-len": "warn", // max line length
-    "react/require-default-props": "off", // default values on props
-    "react/react-in-jsx-scope": "off", // react is always in scrope
-    "react/jsx-one-expression-per-line": "off", // multiple expressions on a single line
+    "max-len": "warn",
+    "react/require-default-props": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-one-expression-per-line": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "react/jsx-no-constructed-context-values": "off",
     "eslint-plugin-vue/require-default-prop": "off",
     "linebreak-style": "off",
     "object-curly-newline": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "@typescript-eslint/indent": "off"
   }
 }

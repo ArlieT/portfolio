@@ -2,38 +2,24 @@
 
 import { Photos, Prisma } from '@prisma/client';
 import { revalidatePath, revalidateTag } from 'next/cache';
+import prisma from '@/_lib/prisma';
 
 export const getPhotos = async (): Promise<{
   data: Photos[];
   error: string | null;
 }> => {
-  const baseURL =
-    process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ||
-    'http://localhost:3000';
-  console.log({ baseURL });
-
   try {
-    const response = await fetch(`${baseURL}/api/photos`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      next: {
-        tags: ['posts'],
+    const photos = await prisma.photos.findMany({
+      orderBy: {
+        photosUrl: 'asc',
       },
     });
 
-    if (!response.ok) {
-      console.error(`Error fetching photos: ${response.statusText}`);
-      return { data: [], error: `Failed to fetch: ${response.statusText}` };
-    }
-
-    const data = await response.json();
-    console.log({ data });
-
-    return { data: data?.data, error: null };
+    console.log(`Found ${photos.length} photos`);
+    return { data: photos, error: null };
   } catch (error) {
-    console.error(`Fetch error: ${error}`);
-    return { data: [], error: 'No data available due to an error' };
+    console.error(`Database error: ${error}`);
+    return { data: [], error: 'Failed to fetch photos from database' };
   }
 };
 
@@ -44,26 +30,27 @@ export type PhotosFormData = {
 };
 
 export const updateLikeStatus = async (prev: PhotosFormData) => {
-  const baseURL =
-    process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ||
-    'http://localhost:3000';
-
   try {
-    const response = await fetch(baseURL + '/api/photos', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: prev.id, status: prev.status }),
+    const photo = await prisma.photos.findUnique({
+      where: { id: prev.id },
     });
 
-    const data = await response.json();
+    if (!photo) {
+      return { data: undefined, error: 'Photo not found' };
+    }
+
+    const updatedPhoto = await prisma.photos.update({
+      where: { id: prev.id },
+      data: {
+        count: prev.status === 'increment' ? photo.count + 1 : photo.count - 1,
+      },
+    });
 
     revalidateTag('posts');
-    console.log({ data });
-    return data;
+    console.log('Photo updated:', updatedPhoto);
+    return { data: updatedPhoto, message: 'Photo updated' };
   } catch (error) {
-    console.log(error);
-    return { data: undefined, error: 'No data' };
+    console.error('Update error:', error);
+    return { data: undefined, error: 'Failed to update photo' };
   }
 };
