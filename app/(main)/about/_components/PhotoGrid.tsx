@@ -26,7 +26,9 @@ function PhotoGrid({ photos, error }: { photos: Photos[]; error: string }) {
   };
 
   return (
-    <div className={cn('ml-6 columns-[300px] gap-2 md:ml-0')}>
+    <div
+      className={cn('ap-2 ml-6 md:ml-0 md:columns-[310px] xl:columns-[350px]')}
+    >
       {error && <h1>Oops! Something went wrong.</h1>}
       {photos?.length ? (
         photos?.map((file, index) => (

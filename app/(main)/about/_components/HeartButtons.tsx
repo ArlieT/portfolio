@@ -53,7 +53,7 @@ function HeartButtons({ id, count }: { id: number; count: number }) {
         >
           <span
             id="heart-title"
-            className="hidden text-sm opacity-30 group-hover:block"
+            className="hidden text-sm opacity-50 group-hover:block"
           >
             Double tap to heart
           </span>
